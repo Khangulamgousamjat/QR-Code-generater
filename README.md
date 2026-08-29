@@ -123,16 +123,6 @@ ALL IN ONE QR GENERATER (by Gous Khan)
     ├── Integrated Camera Scanner & Image Decoder
     └── Smart Gate Access Control Pass Token
 ```
-
----
-
-## 🇮🇳 Indian UPI & Aadhaar Notice
-
-- **UPI Payments**: Implements NPCI-compliant `upi://pay?pa=...&pn=...&am=...&cu=INR` deep links. Payments execute securely inside the customer's native banking application.
-- **Aadhaar QR**: Designed with strict privacy awareness. Clearly labeled as user-provided, client-encoded personal data and not an official UIDAI government credential.
-
----
-
 ## 🛠️ Architecture & Tech Stack
 
 - **Author / Lead Engineer**: **[Gous Khan](https://github.com/Khangulamgousamjat)**
@@ -144,32 +134,6 @@ ALL IN ONE QR GENERATER (by Gous Khan)
 - **Typography & Icons**: Google Fonts (`Plus Jakarta Sans`), Lucide Icons.
 - **State & Storage**: Client-side `localStorage` database with zero external server dependencies for static generation.
 
----
-
-## 🚀 Getting Started
-
-### Option 1: Direct Browser Access
-Simply clone the repository and open `index.html` in any modern web browser:
-```bash
-git clone https://github.com/Khangulamgousamjat/QR-Code-generater.git
-cd QR-Code-generater
-# Double click index.html or open with your browser
-```
-
-### Option 2: Run with Local Development Server
-```bash
-# Using Node.js built-in server
-node server.js
-
-# Or using Python 3
-python -m http.server 5173
-
-# Or using npx serve
-npx serve .
-```
-Navigate to `http://localhost:5173` in your browser.
-
----
 
 ## 🎨 Color System & Design Tokens
 
