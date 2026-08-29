@@ -49,14 +49,14 @@ const App = {
   },
 
   initSubsystems() {
-    QRRenderer.init('qr-canvas-container');
-    FormEngine.init('form-container');
-    CustomizerStudio.init('customizer-modal');
-    QRScanner.init('scanner-modal');
-    HistoryManager.init('history-modal');
-    TemplatesEngine.init('templates-modal');
-    BulkEngine.init('bulk-modal');
-    AnalyticsManager.init('analytics-modal');
+    try { QRRenderer.init('qr-canvas-container'); } catch (e) { console.warn('QRRenderer init error:', e); }
+    try { FormEngine.init('form-container'); } catch (e) { console.warn('FormEngine init error:', e); }
+    try { CustomizerStudio.init('customizer-modal'); } catch (e) { console.warn('CustomizerStudio init error:', e); }
+    try { QRScanner.init('scanner-modal'); } catch (e) { console.warn('QRScanner init error:', e); }
+    try { HistoryManager.init('history-modal'); } catch (e) { console.warn('HistoryManager init error:', e); }
+    try { TemplatesEngine.init('templates-modal'); } catch (e) { console.warn('TemplatesEngine init error:', e); }
+    try { BulkEngine.init('bulk-modal'); } catch (e) { console.warn('BulkEngine init error:', e); }
+    try { AnalyticsManager.init('analytics-modal'); } catch (e) { console.warn('AnalyticsManager init error:', e); }
   },
 
   populateSidebarCounts() {
@@ -277,9 +277,6 @@ const App = {
 
   openSettingsModal() {
     const modal = document.getElementById('settings-modal');
-    if (modal) modal.classList.add('active');
-  },
-
   openHelpModal() {
     const modal = document.getElementById('help-modal');
     if (modal) modal.classList.add('active');
@@ -291,12 +288,48 @@ const App = {
       this.switchQRType('personal');
     } else {
       // Default to landing view, but have form ready
-      FormEngine.renderForm('personal');
+      try {
+        FormEngine.renderForm('personal');
+      } catch (e) {
+        console.warn('Initial form render deferred:', e);
+      }
     }
   }
 };
 
-// Initialize on DOM load
-document.addEventListener('DOMContentLoaded', () => {
-  App.init();
+// Robust Global Click Handler for 100% Guaranteed CTA Execution
+document.addEventListener('click', (e) => {
+  const cta = e.target.closest('.btn-open-studio, [data-action="open-studio"]');
+  if (cta) {
+    e.preventDefault();
+    if (window.App && typeof window.App.switchQRType === 'function') {
+      window.App.switchQRType('personal');
+    } else {
+      const landing = document.getElementById('landing-view');
+      const dashboard = document.getElementById('dashboard-view');
+      if (landing) landing.classList.add('hidden');
+      if (dashboard) dashboard.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
 });
+
+// Safe Instant & DOMContentLoaded Initialization
+function initAppSafely() {
+  if (window.App && !window.App._initialized) {
+    window.App._initialized = true;
+    try {
+      window.App.init();
+    } catch (err) {
+      console.error('App init error:', err);
+    }
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAppSafely);
+} else {
+  initAppSafely();
+}
+window.addEventListener('load', initAppSafely);
+

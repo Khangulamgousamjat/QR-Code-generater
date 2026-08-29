@@ -500,7 +500,7 @@
       </nav>
 
       <div style="display: flex; align-items: center; gap: 14px;">
-        <button type="button" class="btn-landing-cta btn-open-studio">
+        <button type="button" class="btn-landing-cta btn-open-studio" onclick="App.switchQRType('personal')">
           <span>Start Generating</span>
           <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
         </button>
@@ -526,7 +526,7 @@
       </p>
 
       <div class="hero-cta-group">
-        <button type="button" class="btn-hero-primary btn-open-studio">
+        <button type="button" class="btn-hero-primary btn-open-studio" onclick="App.switchQRType('personal')">
           <span>Create QR Code</span>
           <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
         </button>
@@ -561,7 +561,7 @@
               <span class="badge badge-purple">Logo Embedding</span>
               <span class="badge badge-free">SVG / PNG / JPG</span>
             </div>
-            <button type="button" class="btn-primary-proceed btn-open-studio" style="align-self: flex-start; margin-top: 10px;">
+            <button type="button" class="btn-primary-proceed btn-open-studio" onclick="App.switchQRType('personal')" style="align-self: flex-start; margin-top: 10px;">
               Open Full Studio <i data-lucide="arrow-right"></i>
             </button>
           </div>
