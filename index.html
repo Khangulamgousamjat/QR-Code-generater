@@ -247,6 +247,14 @@
     .form-header-title { font-size: 19px; font-weight: 800; color: var(--text-main); letter-spacing: -0.02em; }
     .form-header-desc { font-size: 12px; color: var(--text-secondary); }
 
+    .btn-github-star { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: #17152B; color: #FFFFFF !important; border-radius: var(--border-radius-full); font-size: 13px; font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: var(--shadow-sm); transition: all var(--transition-fast); text-decoration: none; }
+    .btn-github-star:hover { background: #2D2A48; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(23, 21, 43, 0.3); }
+    .star-badge { background: #F59E0B; color: #17152B; font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: var(--border-radius-full); }
+    .footer-social-links { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .footer-social-btn { display: inline-flex; align-items: center; gap: 7px; padding: 7px 15px; border-radius: var(--border-radius-full); background: var(--bg-card); border: 1.5px solid var(--border-color); color: var(--text-main); font-size: 12.5px; font-weight: 700; transition: all var(--transition-fast); text-decoration: none; }
+    .footer-social-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); background: var(--bg-lavender-light); }
+    .footer-bottom-grid { width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; padding-top: 22px; margin-top: 22px; border-top: 1px solid var(--border-light); }
+
     .form-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px 20px; }
     .form-grid-1 { display: grid; grid-template-columns: 1fr; gap: 18px; }
     .form-group { display: flex; flex-direction: column; gap: 6px; }
@@ -463,7 +471,20 @@
     <header class="landing-nav">
       <a href="#" class="landing-nav-logo">
         <div class="sidebar-logo-icon">
-          <i data-lucide="qr-code"></i>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="5" height="5" x="3" y="3" rx="1"/>
+            <rect width="5" height="5" x="16" y="3" rx="1"/>
+            <rect width="5" height="5" x="3" y="16" rx="1"/>
+            <path d="M21 16h-3a2 2 0 0 0-2 2v3"/>
+            <path d="M21 21v.01"/>
+            <path d="M12 7v3a2 2 0 0 1-2 2H7"/>
+            <path d="M3 12h.01"/>
+            <path d="M12 3h.01"/>
+            <path d="M12 16v.01"/>
+            <path d="M16 12h1"/>
+            <path d="M21 12v.01"/>
+            <path d="M12 21v-1"/>
+          </svg>
         </div>
         <div class="sidebar-brand-text">
           <span class="sidebar-brand-name">ALL IN ONE QR GENERATER</span>
@@ -479,12 +500,6 @@
       </nav>
 
       <div style="display: flex; align-items: center; gap: 14px;">
-        <!-- Made by Gous Khan Animated Badge in Header -->
-        <a href="https://github.com/Khangulamgousamjat" target="_blank" rel="noopener noreferrer" class="made-by-badge" title="Developer Profile">
-          <span class="heart-beat">❤️</span>
-          <span class="shimmer-text">Made by Gous Khan</span>
-        </a>
-
         <button type="button" class="btn-landing-cta btn-open-studio">
           <span>Start Generating</span>
           <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
@@ -715,25 +730,84 @@
       </div>
     </section>
 
-    <!-- Footer with Animated Creator Credit -->
+    <!-- Footer with Repository Star, Social Links & Creator Credit -->
     <footer class="landing-footer">
-      <div class="footer-inner">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <div class="sidebar-logo-icon" style="width: 32px; height: 32px;">
-            <i data-lucide="qr-code"></i>
+      <div class="footer-inner" style="flex-direction: column; gap: 24px; align-items: stretch;">
+        <!-- Top Row of Footer -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div class="sidebar-logo-icon" style="width: 36px; height: 36px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="5" height="5" x="3" y="3" rx="1"/>
+                <rect width="5" height="5" x="16" y="3" rx="1"/>
+                <rect width="5" height="5" x="3" y="16" rx="1"/>
+                <path d="M21 16h-3a2 2 0 0 0-2 2v3"/>
+                <path d="M21 21v.01"/>
+                <path d="M12 7v3a2 2 0 0 1-2 2H7"/>
+                <path d="M3 12h.01"/>
+                <path d="M12 3h.01"/>
+                <path d="M12 16v.01"/>
+                <path d="M16 12h1"/>
+                <path d="M21 12v.01"/>
+                <path d="M12 21v-1"/>
+              </svg>
+            </div>
+            <div>
+              <strong style="font-size: 16px; color: var(--text-main); display: block;">ALL IN ONE QR GENERATER</strong>
+              <span style="font-size: 11.5px; color: var(--text-secondary);">100% Free Forever • No Sign Up Required</span>
+            </div>
           </div>
-          <strong style="font-size: 15px; color: var(--text-main);">ALL IN ONE QR GENERATER</strong>
-        </div>
-        
-        <!-- Animated Made by Gous Khan Badge in Footer -->
-        <a href="https://github.com/Khangulamgousamjat" target="_blank" rel="noopener noreferrer" class="author-footer-badge">
-          <span class="heart-beat">❤️</span>
-          <span>Crafted with passion by <strong class="shimmer-text">Gous Khan</strong></span>
-        </a>
 
-        <button type="button" class="btn-primary-proceed btn-open-studio" style="margin-left: 0; padding: 8px 18px; font-size: 12px;">
-          Launch Studio <i data-lucide="arrow-right"></i>
-        </button>
+          <!-- GitHub Repo Star Link -->
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <a href="https://github.com/Khangulamgousamjat/QR-Code-generater" target="_blank" rel="noopener noreferrer" class="btn-github-star" title="Star this repository on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" stroke="none">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+              <span>Star on GitHub</span>
+              <span class="star-badge">★ Star Repo</span>
+            </a>
+
+            <button type="button" class="btn-primary-proceed btn-open-studio" style="margin-left: 0; padding: 8px 18px; font-size: 12.5px;">
+              Launch Studio <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Row: Animated Made by Gous Khan & Social Links (Git & LinkedIn) -->
+        <div class="footer-bottom-grid">
+          <!-- Animated Made by Gous Khan Badge -->
+          <a href="https://github.com/Khangulamgousamjat" target="_blank" rel="noopener noreferrer" class="author-footer-badge" title="Developer Profile">
+            <span class="heart-beat">❤️</span>
+            <span>Crafted with passion by <strong class="shimmer-text">Gous Khan</strong></span>
+          </a>
+
+          <!-- Social Links with Git and LinkedIn Icons -->
+          <div class="footer-social-links">
+            <a href="https://github.com/Khangulamgousamjat" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="GitHub - @Khangulamgousamjat">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/gous-khan-41270233b/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="LinkedIn - Gous Khan">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="#0A66C2">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://github.com/Khangulamgousamjat/QR-Code-generater" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="GitHub Repository">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>Repository</span>
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
@@ -749,7 +823,20 @@
       <!-- Sidebar Header / Brand -->
       <div class="sidebar-header">
         <div class="sidebar-logo-icon">
-          <i data-lucide="qr-code"></i>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="5" height="5" x="3" y="3" rx="1"/>
+            <rect width="5" height="5" x="16" y="3" rx="1"/>
+            <rect width="5" height="5" x="3" y="16" rx="1"/>
+            <path d="M21 16h-3a2 2 0 0 0-2 2v3"/>
+            <path d="M21 21v.01"/>
+            <path d="M12 7v3a2 2 0 0 1-2 2H7"/>
+            <path d="M3 12h.01"/>
+            <path d="M12 3h.01"/>
+            <path d="M12 16v.01"/>
+            <path d="M16 12h1"/>
+            <path d="M21 12v.01"/>
+            <path d="M12 21v-1"/>
+          </svg>
         </div>
         <div class="sidebar-brand-text">
           <span class="sidebar-brand-name">QR Craft</span>
