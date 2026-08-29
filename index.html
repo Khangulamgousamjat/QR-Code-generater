@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALL IN ONE QR GENERATER | Professional Free QR Code Studio</title>
+  <meta name="description" content="Generate 100% free customizable QR codes for links, personal details, Wi-Fi, UPI payments, business cards, text, and 44+ formats. No login required.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/preview.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Third-party Production Libraries -->
+  <!-- QRCodeStyling (Vector & Canvas QR Renderer with Custom Shapes, Eyes & Gradients) -->
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+  <!-- Lucide Modern Feather Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- jsQR for Camera and Image File QR Decoding -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  <!-- JSZip & FileSaver for Bulk QR Code Generation & Multi-Download -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       VIEW 1: HERO LANDING PAGE
+       ========================================================================= -->
+  <div id="landing-view" class="landing-wrapper">
+    <!-- Top Landing Navigation -->
+    <header class="landing-nav">
+      <a href="#" class="landing-nav-logo">
+        <div class="sidebar-logo-icon">
+          <i data-lucide="qr-code"></i>
+        </div>
+        <div class="sidebar-brand-text">
+          <span class="sidebar-brand-name">ALL IN ONE QR GENERATER</span>
+          <span class="sidebar-brand-sub">Professional Free QR Studio</span>
+        </div>
+      </a>
+
+      <nav class="landing-nav-links">
+        <a href="#features" class="landing-nav-link">Features</a>
+        <a href="#types" class="landing-nav-link">44+ QR Types</a>
+        <a href="#how-it-works" class="landing-nav-link">How It Works</a>
+        <a href="#faq" class="landing-nav-link">FAQ</a>
+      </nav>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button type="button" class="btn-landing-cta btn-open-studio">
+          <span>Start Generating</span>
+          <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-pill-badge">
+        <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+        <span>100% Free Forever • No Login Required</span>
+      </div>
+
+      <h1 class="hero-title">
+        Create QR Codes. <span class="gradient-text">Free. Fast. Beautiful.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Generate customizable QR codes for links, text, contact details, Wi-Fi, UPI payments, business cards and 44+ specialized formats. No signup or subscriptions.
+      </p>
+
+      <div class="hero-cta-group">
+        <button type="button" class="btn-hero-primary btn-open-studio">
+          <span>Create QR Code</span>
+          <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+        </button>
+        <a href="#types" class="btn-hero-secondary">
+          <i data-lucide="grid" style="width: 18px; height: 18px;"></i>
+          <span>Explore 44+ Types</span>
+        </a>
+      </div>
+
+      <p class="hero-trust-statement">
+        Free forever • No account required • Instant high-resolution vector download
+      </p>
+
+      <!-- Hero Mockup Preview -->
+      <div class="hero-mockup-wrapper">
+        <div class="mockup-inner" style="padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center;">
+          <div style="text-align: left; display: flex; flex-direction: column; gap: 12px;">
+            <span class="badge badge-purple" style="align-self: flex-start;">Studio Preview</span>
+            <h3 style="font-size: 22px; font-weight: 800;">Studio-Grade Customization</h3>
+            <p style="font-size: 13.5px; color: var(--text-secondary);">
+              Choose dotted modules, rounded corners, custom gradient colors, upload brand logos, and export crisp SVG vector files.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px;">
+              <span class="badge badge-purple">Dotted Modules</span>
+              <span class="badge badge-purple">Custom Eye Styles</span>
+              <span class="badge badge-purple">Logo Embedding</span>
+              <span class="badge badge-free">SVG / PNG / JPG</span>
+            </div>
+            <button type="button" class="btn-primary-proceed btn-open-studio" style="align-self: flex-start; margin-top: 10px;">
+              Open Full Studio <i data-lucide="arrow-right"></i>
+            </button>
+          </div>
+
+          <div style="background: #FFFFFF; border: 1.5px solid var(--border-color); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+            <div style="width: 200px; height: 200px; background: #FAF9FF; border-radius: 12px; border: 1px solid var(--bg-lavender-border); display: flex; align-items: center; justify-content: center;">
+              <i data-lucide="qr-code" style="width: 140px; height: 140px; color: #7C3AED;"></i>
+            </div>
+            <span style="margin-top: 12px; font-size: 12px; font-weight: 700; color: var(--text-main);">Personal Details QR Code</span>
+            <span style="font-size: 11px; color: var(--text-secondary);">512 × 512 Vector PNG</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="landing-features-section">
+      <div class="section-header-center">
+        <span class="section-tag">Why ALL IN ONE QR GENERATER</span>
+        <h2 class="section-heading">Everything You Need. Zero Restrictions.</h2>
+        <p style="color: var(--text-secondary);">Built for creators, businesses, developers, and everyday users who need fast, reliable QR codes without paywalls.</p>
+      </div>
+
+      <div class="features-cards-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box"><i data-lucide="infinity"></i></div>
+          <h3 class="feature-card-title">100% Free Forever</h3>
+          <p class="feature-card-desc">No hidden trials, no "Go Pro" popups, and no limits on the number of QR codes you can generate or download.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box"><i data-lucide="user-x"></i></div>
+          <h3 class="feature-card-title">No Account or Login</h3>
+          <p class="feature-card-desc">Open the tool and create your QR code immediately. Your data stays entirely inside your browser for maximum privacy.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box"><i data-lucide="palette"></i></div>
+          <h3 class="feature-card-title">Deep Design Customizer</h3>
+          <p class="feature-card-desc">Customize module shapes (dots, rounded, classy), corner eye designs, linear gradients, and embed brand logos seamlessly.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box"><i data-lucide="layers"></i></div>
+          <h3 class="feature-card-title">44+ Specialized Types</h3>
+          <p class="feature-card-desc">From standard URLs and Wi-Fi to Indian UPI payments, vCards, event tickets, TOTP 2FA, and business invoices.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box"><i data-lucide="download"></i></div>
+          <h3 class="feature-card-title">Vector SVG & High-Res PNG</h3>
+          <p class="feature-card-desc">Export print-ready scalable SVG vectors or crystal-clear PNG and JPG images at up to 2048×2048 resolution.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box"><i data-lucide="shield-check"></i></div>
+          <h3 class="feature-card-title">Privacy & Security First</h3>
+          <p class="feature-card-desc">Static QR codes are rendered locally with zero server logging. Aadhaar and personal data remain safely in your hands.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 44 QR Types Directory Grid -->
+    <section id="types" class="qr-matrix-section">
+      <div class="qr-matrix-container">
+        <div class="section-header-center">
+          <span class="section-tag">Directory</span>
+          <h2 class="section-heading">44+ Dedicated QR Systems</h2>
+          <p style="color: var(--text-secondary);">Click any type to open its custom schema-driven generator in the studio.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="matrix-categories-tabs">
+          <button type="button" class="matrix-tab-btn active" data-category="all">All (44)</button>
+          <button type="button" class="matrix-tab-btn" data-category="basic">Basic (9)</button>
+          <button type="button" class="matrix-tab-btn" data-category="business">Business (12)</button>
+          <button type="button" class="matrix-tab-btn" data-category="payments">Payments (4)</button>
+          <button type="button" class="matrix-tab-btn" data-category="identity">Identity & Security (9)</button>
+          <button type="button" class="matrix-tab-btn" data-category="advanced">Advanced (11)</button>
+        </div>
+
+        <!-- Matrix Cards Grid -->
+        <div id="landing-matrix-cards" class="matrix-cards-grid"></div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="landing-features-section">
+      <div class="section-header-center">
+        <span class="section-tag">Workflow</span>
+        <h2 class="section-heading">How It Works</h2>
+        <p style="color: var(--text-secondary);">Four effortless steps from concept to scannable code.</p>
+      </div>
+
+      <div class="features-cards-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="feature-card" style="text-align: center; align-items: center;">
+          <div class="feature-icon-box">1</div>
+          <h4 class="feature-card-title">Choose Type</h4>
+          <p class="feature-card-desc">Select from URL, Personal Details, UPI, Wi-Fi, or 44 other QR formats.</p>
+        </div>
+        <div class="feature-card" style="text-align: center; align-items: center;">
+          <div class="feature-icon-box">2</div>
+          <h4 class="feature-card-title">Enter Info</h4>
+          <p class="feature-card-desc">Fill in the fields you want. All personal fields are completely optional.</p>
+        </div>
+        <div class="feature-card" style="text-align: center; align-items: center;">
+          <div class="feature-icon-box">3</div>
+          <h4 class="feature-card-title">Customize</h4>
+          <p class="feature-card-desc">Pick dots, corner styles, colors, upload a logo, and adjust frames.</p>
+        </div>
+        <div class="feature-card" style="text-align: center; align-items: center;">
+          <div class="feature-icon-box">4</div>
+          <h4 class="feature-card-title">Download & Share</h4>
+          <p class="feature-card-desc">Export in PNG, JPEG, or scalable SVG for print and digital publishing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+      <div class="section-header-center">
+        <span class="section-tag">Frequently Asked Questions</span>
+        <h2 class="section-heading">Answers & Clarifications</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Are these QR codes really 100% free forever?</span>
+            <i data-lucide="chevron-down" class="accordion-chevron"></i>
+          </button>
+          <div class="faq-answer">
+            Yes! There are no paid subscriptions, no scan limits, and no watermarks. Every QR type and export format is freely accessible.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Will my static QR codes expire?</span>
+            <i data-lucide="chevron-down" class="accordion-chevron"></i>
+          </button>
+          <div class="faq-answer">
+            No. Standard static QR codes (URLs, Wi-Fi, Personal vCards, UPI) encode data directly into the pixel pattern. They will work permanently and never expire.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>How does the Indian UPI QR payment work?</span>
+            <i data-lucide="chevron-down" class="accordion-chevron"></i>
+          </button>
+          <div class="faq-answer">
+            The UPI QR encodes a standard `upi://pay` deep link recognized by GPay, PhonePe, Paytm, BHIM, and all Indian banking apps. Payments take place securely within your banking application.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>How is Aadhaar QR handled responsibly?</span>
+            <i data-lucide="chevron-down" class="accordion-chevron"></i>
+          </button>
+          <div class="faq-answer">
+            Aadhaar QR codes on this platform encode only user-provided personal details with explicit privacy notices. They are clearly labeled as client-encoded data and not official UIDAI credentials.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="footer-inner">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div class="sidebar-logo-icon" style="width: 32px; height: 32px;">
+            <i data-lucide="qr-code"></i>
+          </div>
+          <strong style="font-size: 15px; color: var(--text-main);">ALL IN ONE QR GENERATER</strong>
+        </div>
+        <p class="footer-copy">© 2026 ALL IN ONE QR GENERATER. 100% Free Forever • Open Productivity Studio.</p>
+        <button type="button" class="btn-primary-proceed btn-open-studio" style="margin-left: 0; padding: 8px 18px; font-size: 12px;">
+          Launch Studio <i data-lucide="arrow-right"></i>
+        </button>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- =========================================================================
+       VIEW 2: MAIN FULL-SCREEN DASHBOARD & STUDIO (Strict Reference Design)
+       ========================================================================= -->
+  <div id="dashboard-view" class="app-layout hidden">
+    
+    <!-- LEFT SIDEBAR (Matches Reference Layout) -->
+    <aside id="sidebar" class="sidebar">
+      <!-- Sidebar Header / Brand -->
+      <div class="sidebar-header">
+        <div class="sidebar-logo-icon">
+          <i data-lucide="qr-code"></i>
+        </div>
+        <div class="sidebar-brand-text">
+          <span class="sidebar-brand-name">QR Craft</span>
+          <span class="sidebar-brand-sub">Professional QR Generator</span>
+        </div>
+      </div>
+
+      <!-- Scrollable Navigation -->
+      <div class="sidebar-nav">
+        <!-- Top Dashboard Item -->
+        <div class="nav-item active" id="nav-dashboard-home" data-type-id="personal">
+          <div class="nav-item-content">
+            <div class="nav-item-icon"><i data-lucide="layout-dashboard"></i></div>
+            <span>Dashboard</span>
+          </div>
+        </div>
+
+        <!-- MY QR Section -->
+        <div class="nav-section">
+          <span class="nav-section-title">MY QR</span>
+          <div class="nav-item" data-type-id="personal">
+            <div class="nav-item-content">
+              <div class="nav-item-icon"><i data-lucide="user"></i></div>
+              <span>Personal Details QR</span>
+            </div>
+            <i data-lucide="chevron-up" style="width: 14px; height: 14px; opacity: 0.6;"></i>
+          </div>
+          <div class="nav-item" data-type-id="url">
+            <div class="nav-item-content">
+              <div class="nav-item-icon"><i data-lucide="link"></i></div>
+              <span>URL QR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR CODE TYPES Section with Counts -->
+        <div class="nav-section">
+          <span class="nav-section-title">QR CODE TYPES</span>
+
+          <!-- Basic Accordion -->
+          <div class="nav-accordion-group open">
+            <div class="nav-accordion-header">
+              <div class="nav-item-content">
+                <div class="nav-item-icon"><i data-lucide="sparkles"></i></div>
+                <span>Basic</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="badge-count" id="count-basic">9</span>
+                <i data-lucide="chevron-down" class="accordion-chevron"></i>
+              </div>
+            </div>
+            <div class="nav-accordion-content" id="submenu-basic"></div>
+          </div>
+
+          <!-- Business Accordion -->
+          <div class="nav-accordion-group">
+            <div class="nav-accordion-header">
+              <div class="nav-item-content">
+                <div class="nav-item-icon"><i data-lucide="briefcase"></i></div>
+                <span>Business</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="badge-count" id="count-business">12</span>
+                <i data-lucide="chevron-down" class="accordion-chevron"></i>
+              </div>
+            </div>
+            <div class="nav-accordion-content" id="submenu-business"></div>
+          </div>
+
+          <!-- Payments Accordion -->
+          <div class="nav-accordion-group">
+            <div class="nav-accordion-header">
+              <div class="nav-item-content">
+                <div class="nav-item-icon"><i data-lucide="credit-card"></i></div>
+                <span>Payments</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="badge-count" id="count-payments">4</span>
+                <i data-lucide="chevron-down" class="accordion-chevron"></i>
+              </div>
+            </div>
+            <div class="nav-accordion-content" id="submenu-payments"></div>
+          </div>
+
+          <!-- Identity & Security Accordion -->
+          <div class="nav-accordion-group">
+            <div class="nav-accordion-header">
+              <div class="nav-item-content">
+                <div class="nav-item-icon"><i data-lucide="shield"></i></div>
+                <span>Identity & Security</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="badge-count" id="count-identity">9</span>
+                <i data-lucide="chevron-down" class="accordion-chevron"></i>
+              </div>
+            </div>
+            <div class="nav-accordion-content" id="submenu-identity"></div>
+          </div>
+
+          <!-- Advanced Accordion -->
+          <div class="nav-accordion-group">
+            <div class="nav-accordion-header">
+              <div class="nav-item-content">
+                <div class="nav-item-icon"><i data-lucide="sliders"></i></div>
+                <span>Advanced</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="badge-count" id="count-advanced">11</span>
+                <i data-lucide="chevron-down" class="accordion-chevron"></i>
+              </div>
+            </div>
+            <div class="nav-accordion-content" id="submenu-advanced"></div>
+          </div>
+        </div>
+
+        <!-- TOOLS Section -->
+        <div class="nav-section">
+          <span class="nav-section-title">TOOLS</span>
+          <div class="nav-item" id="nav-scan-qr">
+            <div class="nav-item-content">
+              <div class="nav-item-icon"><i data-lucide="scan"></i></div>
+              <span>Scan QR</span>
+            </div>
+          </div>
+          <div class="nav-item" id="nav-history">
+            <div class="nav-item-content">
+              <div class="nav-item-icon"><i data-lucide="history"></i></div>
+              <span>My QR Codes</span>
+            </div>
+          </div>
+          <div class="nav-item" id="nav-templates">
+            <div class="nav-item-content">
+              <div class="nav-item-icon"><i data-lucide="bookmark"></i></div>
+              <span>Templates</span>
+            </div>
+          </div>
+          <div class="nav-item" id="nav-analytics">
+            <div class="nav-item-content">
+              <div class="nav-item-icon"><i data-lucide="bar-chart-2"></i></div>
+              <span>Analytics</span>
+            </div>
+            <span class="badge badge-purple" style="font-size: 10px;">Free</span>
+          </div>
+        </div>
+
+        <!-- SYSTEM Section -->
+        <div class="nav-section">
+          <span class="nav-section-title">SYSTEM</span>
+          <div class="nav-item" id="nav-settings">
+            <div class="nav-item-content">
+              <div class="nav-item-icon"><i data-lucide="settings"></i></div>
+              <span>Settings</span>
+            </div>
+          </div>
+          <div class="nav-item" id="nav-help">
+            <div class="nav-item-content">
+              <div class="nav-item-icon"><i data-lucide="help-circle"></i></div>
+              <span>Help & Support</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Footer (100% Free Forever Badge - matches visual placement of reference card) -->
+      <div class="sidebar-footer">
+        <div class="free-forever-card">
+          <div class="free-card-title">
+            <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+            <span>100% Free Forever</span>
+          </div>
+          <p class="free-card-text">All 44+ QR types and high-res vector downloads are fully unlocked.</p>
+          <button type="button" class="free-card-btn" onclick="Utils.showToast('All features are free forever!', 'success')">
+            <i data-lucide="check-circle" style="width: 14px; height: 14px;"></i>
+            <span>No Pro Plan Needed</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+
+    <!-- MAIN WRAPPER (Topbar + Studio Content) -->
+    <main class="main-wrapper">
+      
+      <!-- TOPBAR HEADER (Matches Reference Layout) -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button type="button" class="mobile-toggle-btn" id="btn-mobile-sidebar-toggle" title="Toggle Navigation">
+            <i data-lucide="menu"></i>
+          </button>
+          <div class="topbar-title-group">
+            <h1 class="topbar-title" id="topbar-title">Personal Details QR</h1>
+            <p class="topbar-subtitle" id="topbar-subtitle">Create a QR code for personal information and contact details</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <!-- Back to Landing Link -->
+          <button type="button" class="btn-secondary" onclick="App.switchView('landing')" style="padding: 6px 12px; font-size: 11.5px;">
+            <i data-lucide="home" style="width: 14px; height: 14px;"></i>
+            <span>Home</span>
+          </button>
+
+          <!-- Theme Toggle (Dark / Light) -->
+          <button type="button" class="icon-btn" id="btn-theme-toggle" title="Toggle Theme">
+            <i data-lucide="moon"></i>
+          </button>
+
+          <!-- Notifications Bell -->
+          <button type="button" class="icon-btn" id="btn-notifications" title="Notifications">
+            <i data-lucide="bell"></i>
+          </button>
+
+          <!-- User Pill (Free Plan) -->
+          <div class="user-pill">
+            <div class="user-avatar">U</div>
+            <div class="user-info">
+              <span class="user-name">User</span>
+              <span class="user-plan">Free Plan</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- STUDIO CONTAINER (2-Column Form + Preview & Bottom Metrics) -->
+      <div class="studio-container">
+        
+        <div class="studio-grid">
+          <!-- CENTER/LEFT: Dynamic Form Container -->
+          <div id="form-container"></div>
+
+          <!-- RIGHT: QR Code Preview Panel (Matches Reference Layout) -->
+          <div class="preview-card">
+            <div class="preview-header">
+              <div class="preview-title-group">
+                <i data-lucide="eye" class="preview-title-icon"></i>
+                <h3 class="preview-title">QR Code Preview</h3>
+              </div>
+              <button type="button" class="btn-customize-header" id="btn-open-customizer">
+                <i data-lucide="settings-2" style="width: 13px; height: 13px;"></i>
+                <span>Customize</span>
+              </button>
+            </div>
+
+            <!-- Canvas Container -->
+            <div class="qr-canvas-wrapper">
+              <div id="qr-canvas-container"></div>
+            </div>
+
+            <p class="qr-scan-instruction">Scan to view details</p>
+
+            <!-- Quick Options Bar -->
+            <div class="quick-options-section">
+              <span class="quick-options-title">Quick Options</span>
+              <div class="quick-options-grid">
+                <button type="button" class="quick-opt-btn" data-target-tab="colors" title="Customize Colors">
+                  <i data-lucide="palette" class="quick-opt-icon"></i>
+                  <span>Colors</span>
+                </button>
+                <button type="button" class="quick-opt-btn" data-target-tab="logo" title="Upload Logo">
+                  <i data-lucide="image" class="quick-opt-icon"></i>
+                  <span>Logo</span>
+                </button>
+                <button type="button" class="quick-opt-btn" data-target-tab="shapes" title="Choose Pattern Shape">
+                  <i data-lucide="shapes" class="quick-opt-icon"></i>
+                  <span>Shape</span>
+                </button>
+                <button type="button" class="quick-opt-btn" data-target-tab="eyes" title="Choose Eye Design">
+                  <i data-lucide="eye" class="quick-opt-icon"></i>
+                  <span>Eyes</span>
+                </button>
+                <button type="button" class="quick-opt-btn" data-target-tab="frame" title="Add Frame Banner">
+                  <i data-lucide="square" class="quick-opt-icon"></i>
+                  <span>Frame</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Size Selector Pills -->
+            <div class="size-selector-section">
+              <span class="size-selector-title">Size</span>
+              <div class="size-pills-row">
+                <button type="button" class="size-pill" data-size="512">512x512</button>
+                <button type="button" class="size-pill active" data-size="1024">1024x1024</button>
+                <button type="button" class="size-pill" data-size="2048">2048x2048</button>
+              </div>
+            </div>
+
+            <!-- Action Buttons: Download & Share -->
+            <div class="preview-actions-row">
+              <div style="position: relative;">
+                <button type="button" class="btn-download-trigger" id="btn-download-main" style="width: 100%;">
+                  <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+                  <span>Download</span>
+                </button>
+
+                <!-- Format Dropdown Menu -->
+                <div class="download-menu" id="download-format-menu">
+                  <div class="download-menu-item" data-format="png">
+                    <span>Download PNG</span>
+                    <span class="download-menu-badge">Raster Image</span>
+                  </div>
+                  <div class="download-menu-item" data-format="jpeg">
+                    <span>Download JPG</span>
+                    <span class="download-menu-badge">Compact</span>
+                  </div>
+                  <div class="download-menu-item" data-format="svg">
+                    <span>Download SVG</span>
+                    <span class="download-menu-badge">Vector Graphic</span>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn-share" id="btn-share-main">
+                <i data-lucide="share-2" style="width: 16px; height: 16px;"></i>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM METRICS ROW (Matches Reference Image) -->
+        <div class="metrics-row">
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i data-lucide="layout-grid"></i>
+            </div>
+            <div class="metric-content">
+              <span class="metric-label">Total QR Codes</span>
+              <strong class="metric-value" id="metric-total-qrs">12</strong>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i data-lucide="users"></i>
+            </div>
+            <div class="metric-content">
+              <span class="metric-label">Scans This Month</span>
+              <strong class="metric-value" id="metric-scans-month">256</strong>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i data-lucide="target"></i>
+            </div>
+            <div class="metric-content">
+              <span class="metric-label">Active QR Codes</span>
+              <strong class="metric-value" id="metric-active-qrs">8</strong>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon-box">
+              <i data-lucide="activity"></i>
+            </div>
+            <div class="metric-content">
+              <span class="metric-label">Total Scans</span>
+              <strong class="metric-value" id="metric-total-scans">1,245</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+
+  <!-- =========================================================================
+       MODALS & DIALOGS
+       ========================================================================= -->
+
+  <!-- 1. FULL QR CUSTOMIZER STUDIO MODAL -->
+  <div id="customizer-modal" class="modal-backdrop">
+    <div class="modal-container modal-container-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-icon"><i data-lucide="palette"></i></div>
+          <h3 class="modal-title">QR Code Customizer Studio</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="btn-close-customizer" title="Close"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Tabs -->
+        <div class="customizer-tabs">
+          <button type="button" class="customizer-tab active" data-tab="shapes"><i data-lucide="shapes"></i> Module Patterns</button>
+          <button type="button" class="customizer-tab" data-tab="eyes"><i data-lucide="eye"></i> Eye Corner Styles</button>
+          <button type="button" class="customizer-tab" data-tab="colors"><i data-lucide="palette"></i> Colors & Gradients</button>
+          <button type="button" class="customizer-tab" data-tab="logo"><i data-lucide="image"></i> Center Brand Logo</button>
+          <button type="button" class="customizer-tab" data-tab="frame"><i data-lucide="square"></i> Frame & Banners</button>
+        </div>
+
+        <!-- Tab 1: Module Patterns -->
+        <div class="customizer-tab-content active" id="tab-content-shapes">
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-main);">Module Pattern Style</span>
+          <div class="shape-options-grid">
+            <div class="shape-opt-card active" data-shape="extra-rounded">
+              <div class="shape-preview-icon"><i data-lucide="disc" style="width: 24px; height: 24px; color: var(--primary);"></i></div>
+              <span class="shape-label">Extra Rounded</span>
+            </div>
+            <div class="shape-opt-card" data-shape="dots">
+              <div class="shape-preview-icon"><i data-lucide="circle-dot" style="width: 24px; height: 24px; color: var(--primary);"></i></div>
+              <span class="shape-label">Dotted QR</span>
+            </div>
+            <div class="shape-opt-card" data-shape="rounded">
+              <div class="shape-preview-icon"><i data-lucide="squircle" style="width: 24px; height: 24px; color: var(--primary);"></i></div>
+              <span class="shape-label">Smooth Rounded</span>
+            </div>
+            <div class="shape-opt-card" data-shape="square">
+              <div class="shape-preview-icon"><i data-lucide="square" style="width: 24px; height: 24px; color: var(--primary);"></i></div>
+              <span class="shape-label">Classic Square</span>
+            </div>
+            <div class="shape-opt-card" data-shape="classy">
+              <div class="shape-preview-icon"><i data-lucide="sparkle" style="width: 24px; height: 24px; color: var(--primary);"></i></div>
+              <span class="shape-label">Classy Modules</span>
+            </div>
+            <div class="shape-opt-card" data-shape="classy-rounded">
+              <div class="shape-preview-icon"><i data-lucide="star" style="width: 24px; height: 24px; color: var(--primary);"></i></div>
+              <span class="shape-label">Classy Rounded</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Eyes & Pupils -->
+        <div class="customizer-tab-content" id="tab-content-eyes">
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-main);">Corner Frame Style</span>
+          <div class="shape-options-grid">
+            <div class="shape-opt-card eye-opt-card active" data-eye="extra-rounded">
+              <span class="shape-label">Extra Rounded</span>
+            </div>
+            <div class="shape-opt-card eye-opt-card" data-eye="dot">
+              <span class="shape-label">Circle / Dot</span>
+            </div>
+            <div class="shape-opt-card eye-opt-card" data-eye="square">
+              <span class="shape-label">Square Box</span>
+            </div>
+            <div class="shape-opt-card eye-opt-card" data-eye="classy">
+              <span class="shape-label">Classy Frame</span>
+            </div>
+          </div>
+
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-main); margin-top: 10px;">Corner Pupil (Inner Dot)</span>
+          <div class="shape-options-grid">
+            <div class="shape-opt-card pupil-opt-card active" data-pupil="dot">
+              <span class="shape-label">Circular Pupil</span>
+            </div>
+            <div class="shape-opt-card pupil-opt-card" data-pupil="square">
+              <span class="shape-label">Square Pupil</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Colors & Gradients -->
+        <div class="customizer-tab-content" id="tab-content-colors">
+          <div id="contrast-warning-alert" class="privacy-alert-box" style="display: none; border-color: #F59E0B; background: #FFFBEB;">
+            <i data-lucide="alert-triangle" style="color: #F59E0B;"></i>
+            <span>Warning: Foreground and background contrast is low. Some phone cameras may struggle to scan this code.</span>
+          </div>
+
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-main);">Preset Color Combinations</span>
+          <div class="preset-swatches">
+            <button type="button" class="swatch-btn" data-fg="#17152B" data-bg="#FFFFFF" data-eye="#7C3AED" style="background: linear-gradient(135deg, #17152B 50%, #FFFFFF 50%);" title="Midnight Lavender"></button>
+            <button type="button" class="swatch-btn" data-fg="#7C3AED" data-bg="#FFFFFF" data-eye="#7C3AED" style="background: linear-gradient(135deg, #7C3AED 50%, #FFFFFF 50%);" title="Pure Purple"></button>
+            <button type="button" class="swatch-btn" data-fg="#000000" data-bg="#FFFFFF" data-eye="#000000" style="background: linear-gradient(135deg, #000000 50%, #FFFFFF 50%);" title="Classic Monochrome"></button>
+            <button type="button" class="swatch-btn" data-fg="#065F46" data-bg="#F0FDF4" data-eye="#059669" style="background: linear-gradient(135deg, #065F46 50%, #F0FDF4 50%);" title="Emerald Luxury"></button>
+            <button type="button" class="swatch-btn" data-fg="#1E3A8A" data-bg="#EFF6FF" data-eye="#2563EB" style="background: linear-gradient(135deg, #1E3A8A 50%, #EFF6FF 50%);" title="Royal Sapphire"></button>
+            <button type="button" class="swatch-btn" data-fg="#9A3412" data-bg="#FFF7ED" data-eye="#EA580C" style="background: linear-gradient(135deg, #9A3412 50%, #FFF7ED 50%);" title="Sunset Coral"></button>
+          </div>
+
+          <div class="color-picker-row">
+            <div class="form-group">
+              <label class="form-label">Foreground Color</label>
+              <div class="color-input-box">
+                <input type="color" id="input-fg-color" value="#17152B">
+                <span class="color-hex-text" id="text-fg-color">#17152B</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Background Color</label>
+              <div class="color-input-box">
+                <input type="color" id="input-bg-color" value="#FFFFFF">
+                <span class="color-hex-text" id="text-bg-color">#FFFFFF</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="color-picker-row">
+            <div class="form-group">
+              <label class="form-label">Corner Eyes Color</label>
+              <div class="color-input-box">
+                <input type="color" id="input-eye-color" value="#7C3AED">
+                <span class="color-hex-text" id="text-eye-color">#7C3AED</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Enable Dual-Tone Gradient</label>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+                <input type="checkbox" id="toggle-gradient" style="width: 18px; height: 18px; accent-color: var(--primary);">
+                <label for="toggle-gradient" style="font-size: 13px; font-weight: 600; cursor: pointer;">Enable Gradient</label>
+              </div>
+            </div>
+          </div>
+
+          <div id="gradient-controls-wrapper" class="color-picker-row" style="display: none;">
+            <div class="form-group">
+              <label class="form-label">Gradient Color 2</label>
+              <div class="color-input-box">
+                <input type="color" id="input-grad-color" value="#7C3AED">
+                <span class="color-hex-text" id="text-grad-color">#7C3AED</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Logo Embedding -->
+        <div class="customizer-tab-content" id="tab-content-logo">
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-main);">Upload Brand Logo / Avatar</span>
+          <div class="drop-zone" id="logo-dropzone" onclick="document.getElementById('logo-file-input').click();">
+            <i data-lucide="upload-cloud" style="width: 36px; height: 36px; color: var(--primary);"></i>
+            <div>
+              <strong style="font-size: 13px; color: var(--text-main);">Click to upload logo image</strong>
+              <p style="font-size: 11.5px; color: var(--text-secondary);">PNG, JPG, SVG or WEBP</p>
+            </div>
+            <input type="file" id="logo-file-input" accept="image/*" style="display: none;">
+          </div>
+
+          <div id="logo-preview-box" style="display: none; align-items: center; justify-content: space-between; padding: 12px 16px; background: var(--bg-app); border-radius: var(--border-radius-md); border: 1px solid var(--border-color);">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img id="logo-preview-img" src="" alt="Logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 6px; background: #fff; padding: 2px;">
+              <span style="font-size: 12.5px; font-weight: 600;">Custom Logo Active</span>
+            </div>
+            <button type="button" id="btn-remove-logo" class="btn-secondary" style="color: var(--error); padding: 6px 12px; font-size: 11.5px;">Remove Logo</button>
+          </div>
+
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between;">
+              <label class="form-label">Logo Size</label>
+              <span id="text-logo-size" style="font-size: 12px; font-weight: 700; color: var(--primary);">35%</span>
+            </div>
+            <input type="range" id="slider-logo-size" min="0.15" max="0.45" step="0.05" value="0.35" style="width: 100%; accent-color: var(--primary);">
+          </div>
+        </div>
+
+        <!-- Tab 5: Frame & Text Banner -->
+        <div class="customizer-tab-content" id="tab-content-frame">
+          <span style="font-size: 12px; font-weight: 700; color: var(--text-main);">Frame / CTA Banner</span>
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Frame Text</label>
+              <input type="text" id="input-frame-text" value="SCAN ME" class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Frame Preset</label>
+              <select id="select-frame-preset" class="form-select">
+                <option value="none">No Frame (Clean)</option>
+                <option value="SCAN ME">"SCAN ME"</option>
+                <option value="SCAN TO PAY">"SCAN TO PAY"</option>
+                <option value="CONNECT WI-FI">"CONNECT WI-FI"</option>
+                <option value="VISIT WEBSITE">"VISIT WEBSITE"</option>
+                <option value="VIEW MENU">"VIEW MENU"</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" onclick="CustomizerStudio.close()">Done Customizing</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 2. QR SCANNER MODAL -->
+  <div id="scanner-modal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-icon"><i data-lucide="scan"></i></div>
+          <h3 class="modal-title">QR Code Scanner & Decoder</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="btn-close-scanner"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Live Camera Stream -->
+        <div class="scanner-video-wrapper">
+          <video id="scanner-video" muted></video>
+          <div class="scanner-laser-line"></div>
+        </div>
+
+        <!-- Upload Image Dropzone -->
+        <div class="drop-zone" id="scanner-dropzone">
+          <i data-lucide="upload" style="width: 28px; height: 28px; color: var(--primary);"></i>
+          <div>
+            <strong style="font-size: 13px;">Or click / drag-and-drop a QR image</strong>
+            <p style="font-size: 11px; color: var(--text-secondary);">Decodes images instantly in your browser</p>
+          </div>
+          <input type="file" id="scanner-file-input" accept="image/*" style="display: none;">
+        </div>
+
+        <!-- Decoded Output Result -->
+        <div id="scanner-result-box" class="scanner-result-box" style="display: none;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <strong style="font-size: 13px; color: var(--text-main);">Decoded Payload:</strong>
+            <span class="badge badge-purple" id="scanner-result-type">Data</span>
+          </div>
+          <div class="scanner-result-text" id="scanner-result-text"></div>
+          <div id="scanner-result-actions" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" onclick="QRScanner.close()">Close Scanner</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 3. BULK GENERATOR MODAL -->
+  <div id="bulk-modal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-icon"><i data-lucide="file-stack"></i></div>
+          <h3 class="modal-title">Bulk QR Generator (ZIP Batch)</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="btn-close-bulk"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 12.5px; color: var(--text-secondary);">
+          Paste multiple URLs or text strings (one per line) or upload a CSV file to generate high-resolution QR codes packaged in a single ZIP file.
+        </p>
+
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button type="button" class="btn-secondary" onclick="document.getElementById('bulk-csv-input').click();">
+            <i data-lucide="file-text"></i> Upload CSV File
+          </button>
+          <input type="file" id="bulk-csv-input" accept=".csv,.txt" style="display: none;">
+          <span style="font-size: 11.5px; color: var(--text-muted);">or paste directly below</span>
+        </div>
+
+        <textarea id="bulk-textarea" class="form-textarea" rows="6" placeholder="https://example.com/item1&#10;https://example.com/item2&#10;SKU-9904&#10;SKU-9905"></textarea>
+
+        <!-- Progress Box -->
+        <div id="bulk-progress-box" style="display: none; background: var(--bg-app); padding: 14px; border-radius: var(--border-radius-md); border: 1px solid var(--border-color);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 6px;">
+            <span style="font-size: 12px; font-weight: 700;" id="bulk-progress-text">Generating batch...</span>
+          </div>
+          <div style="width: 100%; height: 8px; background: var(--border-light); border-radius: 99px; overflow: hidden;">
+            <div id="bulk-progress-bar" style="width: 0%; height: 100%; background: var(--primary-gradient); transition: width 0.15s;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" onclick="BulkEngine.close()">Cancel</button>
+        <button type="button" class="btn-primary-proceed" id="btn-start-bulk-generation">
+          <i data-lucide="download"></i>
+          <span>Generate & Download ZIP</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 4. TEMPLATES MODAL -->
+  <div id="templates-modal" class="modal-backdrop">
+    <div class="modal-container modal-container-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-icon"><i data-lucide="bookmark"></i></div>
+          <h3 class="modal-title">Ready-Made QR Templates</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="btn-close-templates"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 12.5px; color: var(--text-secondary);">
+          Select a pre-configured template to load formatted business and personal use cases with one click.
+        </p>
+        <div id="templates-grid-container" class="history-grid"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 5. HISTORY MODAL -->
+  <div id="history-modal" class="modal-backdrop">
+    <div class="modal-container modal-container-lg">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-icon"><i data-lucide="history"></i></div>
+          <h3 class="modal-title">My QR Codes (Local History)</h3>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button type="button" class="btn-secondary" id="btn-clear-all-history" style="color: var(--error); padding: 5px 12px; font-size: 11px;">
+            <i data-lucide="trash-2"></i> Clear History
+          </button>
+          <button type="button" class="modal-close-btn" id="btn-close-history"><i data-lucide="x"></i></button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div id="history-grid-container" class="history-grid"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 6. ANALYTICS & DYNAMIC LINKS MODAL -->
+  <div id="analytics-modal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-icon"><i data-lucide="bar-chart-2"></i></div>
+          <h3 class="modal-title">Dynamic QR Links & Scan Tracking</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="btn-close-analytics"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <p style="font-size: 12.5px; color: var(--text-secondary);">
+          Dynamic QR codes redirect scanners to editable target URLs and log local scan counts.
+        </p>
+        <div id="analytics-links-container" style="display: flex; flex-direction: column; gap: 10px;"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 7. SETTINGS MODAL -->
+  <div id="settings-modal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-icon"><i data-lucide="settings"></i></div>
+          <h3 class="modal-title">Settings & Preferences</h3>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="document.getElementById('settings-modal').classList.remove('active')"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Theme Appearance</label>
+          <select class="form-select" onchange="document.documentElement.setAttribute('data-theme', this.value); localStorage.setItem('all_in_one_qr_theme', this.value);">
+            <option value="light">Light Mode (Clean Lavender)</option>
+            <option value="dark">Dark Mode (Midnight)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Default Export Format</label>
+          <select class="form-select">
+            <option value="png">PNG (Raster High-Resolution)</option>
+            <option value="svg">SVG (Scalable Vector Graphic)</option>
+            <option value="jpeg">JPG / JPEG</option>
+          </select>
+        </div>
+
+        <div class="privacy-alert-box">
+          <i data-lucide="shield-check"></i>
+          <div>All application settings and history are stored locally in your browser cache. Zero trackers or ads.</div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" onclick="document.getElementById('settings-modal').classList.remove('active')">Save & Close</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 8. HELP & SUPPORT MODAL -->
+  <div id="help-modal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-title-icon"><i data-lucide="help-circle"></i></div>
+          <h3 class="modal-title">Help & Documentation</h3>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="document.getElementById('help-modal').classList.remove('active')"><i data-lucide="x"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-main);">How to create QR codes:</h4>
+        <ol style="padding-left: 20px; font-size: 13px; color: var(--text-secondary); display: flex; flex-direction: column; gap: 6px;">
+          <li>Select a QR type from the left sidebar (e.g., Personal Details, UPI, Wi-Fi).</li>
+          <li>Enter any details you want. All personal fields are completely optional.</li>
+          <li>Click <strong>Customize</strong> in the preview panel to adjust shapes, dots, colors, or add a logo.</li>
+          <li>Click <strong>Download</strong> and choose PNG, JPG, or SVG vector.</li>
+        </ol>
+
+        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-main); margin-top: 10px;">Scanning Tips:</h4>
+        <p style="font-size: 12.5px; color: var(--text-secondary);">
+          Maintain high contrast between foreground and background colors. If embedding a large logo, use High (H) error correction.
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" onclick="document.getElementById('help-modal').classList.remove('active')">Got It</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container Host -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Core JavaScript Modules -->
+  <script src="js/utils.js"></script>
+  <script src="js/qr-registry.js"></script>
+  <script src="js/qr-renderer.js"></script>
+  <script src="js/forms.js"></script>
+  <script src="js/customizer.js"></script>
+  <script src="js/scanner.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/bulk.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,290 @@
+/* ==========================================================================
+   ALL IN ONE QR GENERATER - QR Preview Panel (Matches Reference Image)
+   ========================================================================== */
+
+.preview-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-xl);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: calc(var(--topbar-height) + 24px);
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preview-title-icon {
+  color: var(--primary);
+  width: 18px;
+  height: 18px;
+}
+
+.preview-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.btn-customize-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--border-radius-sm);
+  background: var(--bg-lavender-light);
+  border: 1px solid var(--bg-lavender-border);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.btn-customize-header:hover {
+  background: var(--bg-lavender);
+  border-color: var(--primary-light);
+}
+
+/* QR Code Display Canvas Container */
+.qr-canvas-wrapper {
+  background: var(--bg-pure);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  position: relative;
+  box-shadow: inset 0 0 12px rgba(124, 58, 237, 0.02);
+}
+
+#qr-canvas-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+#qr-canvas-container svg,
+#qr-canvas-container canvas {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 8px;
+}
+
+.qr-scan-instruction {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Quick Options Grid */
+.quick-options-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quick-options-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.quick-options-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.quick-opt-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 4px;
+  border-radius: var(--border-radius-md);
+  background: var(--bg-app);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.quick-opt-btn:hover {
+  background: var(--bg-lavender-light);
+  color: var(--primary);
+  border-color: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.quick-opt-btn.active {
+  background: var(--bg-lavender);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.quick-opt-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Size Selector Segmented Control */
+.size-selector-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.size-selector-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.size-pills-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  background: var(--bg-app);
+  padding: 4px;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.size-pill {
+  padding: 8px 4px;
+  border-radius: var(--border-radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.size-pill:hover {
+  color: var(--text-main);
+}
+
+.size-pill.active {
+  background: var(--bg-pure);
+  color: var(--primary);
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+  border: 1px solid var(--bg-lavender-border);
+}
+
+/* Action Buttons (Download & Share) */
+.preview-actions-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.btn-download-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: var(--border-radius-md);
+  background: var(--bg-pure);
+  border: 1.5px solid var(--border-color);
+  color: var(--primary);
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.btn-download-trigger:hover {
+  background: var(--bg-lavender-light);
+  border-color: var(--primary-light);
+}
+
+.btn-share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: var(--border-radius-md);
+  background: var(--primary-gradient);
+  color: #FFFFFF;
+  font-size: 13.5px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-share:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(124, 58, 237, 0.4);
+}
+
+/* Format Dropdown Menu */
+.download-menu {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--bg-pure);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 6px;
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+  z-index: 50;
+  animation: fadeIn 0.15s ease;
+}
+
+.download-menu.show {
+  display: flex;
+}
+
+.download-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  border-radius: var(--border-radius-sm);
+  color: var(--text-main);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.download-menu-item:hover {
+  background: var(--bg-lavender);
+  color: var(--primary);
+}
+
+.download-menu-badge {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
