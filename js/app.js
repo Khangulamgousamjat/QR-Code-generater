@@ -277,6 +277,9 @@ const App = {
 
   openSettingsModal() {
     const modal = document.getElementById('settings-modal');
+    if (modal) modal.classList.add('active');
+  },
+
   openHelpModal() {
     const modal = document.getElementById('help-modal');
     if (modal) modal.classList.add('active');
