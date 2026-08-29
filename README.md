@@ -4,7 +4,12 @@
 
 ![ALL IN ONE QR GENERATER Banner](https://img.shields.io/badge/ALL%20IN%20ONE-QR%20GENERATER-7C3AED?style=for-the-badge&logo=qrcode&logoColor=white)
 
+### 🚀 Crafted with ❤️ by **[Gous Khan](https://github.com/Khangulamgousamjat)**
+
 **A professional, production-grade, 100% free QR code studio and productivity platform with 44+ specialized QR systems, live vector customization, camera scanner, batch bulk generator, and offline history.**
+
+[![Made by Gous Khan](https://img.shields.io/badge/Made%20with%20❤️%20by-Gous%20Khan-EC4899?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Khangulamgousamjat)
+[![GitHub Profile](https://img.shields.io/badge/GitHub-Khangulamgousamjat-7C3AED?style=for-the-badge&logo=github)](https://github.com/Khangulamgousamjat)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Free Forever](https://img.shields.io/badge/100%25-Free%20Forever-10B981.svg?style=flat-square)](#product-vision)
@@ -16,9 +21,21 @@
 
 ---
 
+## 👨‍💻 Creator & Lead Engineer
+
+<div align="center">
+
+> **"Built with passion by Gous Khan to provide creators, businesses, and developers with an uncompromised, free, and beautiful QR code platform."**
+
+[![Follow Gous Khan](https://img.shields.io/github/followers/Khangulamgousamjat?label=Follow%20%40Khangulamgousamjat&style=social)](https://github.com/Khangulamgousamjat)
+
+</div>
+
+---
+
 ## 📖 Overview
 
-**ALL IN ONE QR GENERATER** is a modern SaaS-inspired QR Code design and generation platform. It replaces outdated, clunky single-input generators with a clean, high-performance web suite built on a warm lavender & minimalist aesthetic.
+**ALL IN ONE QR GENERATER** (Designed & Developed by **Gous Khan**) is a modern SaaS-inspired QR Code design and generation platform. It replaces outdated, clunky single-input generators with a clean, high-performance web suite built on a warm lavender & minimalist aesthetic.
 
 Open the application, choose any of the **44+ QR types**, enter your data, customize colors and shapes, upload your brand logo, and download in print-ready vector **SVG**, crystal-clear **PNG**, or compact **JPG** formats—all without creating an account or hitting paywalls.
 
@@ -50,7 +67,7 @@ Open the application, choose any of the **44+ QR types**, enter your data, custo
 ## 📂 Supported 44+ QR Types
 
 ```
-ALL IN ONE QR GENERATER
+ALL IN ONE QR GENERATER (by Gous Khan)
 ├── 🟢 Basic Types (9)
 │   ├── Website URL
 │   ├── Plain Text / Notes
@@ -118,7 +135,9 @@ ALL IN ONE QR GENERATER
 
 ## 🛠️ Architecture & Tech Stack
 
+- **Author / Lead Engineer**: **[Gous Khan](https://github.com/Khangulamgousamjat)**
 - **Frontend**: Clean HTML5 semantic layout, CSS3 design tokens with CSS variables, Vanilla JavaScript (ES6+ modular architecture).
+- **Master Stylesheet**: Single high-performance `style.css` guaranteed to work on Vercel, Netlify, GitHub Pages, and local environments.
 - **Rendering Engine**: `qr-code-styling` (v1.6.0-rc.1) for vector SVG paths, custom canvas module shaping, and gradient fills.
 - **Decoder Engine**: `jsQR` for image array parsing and video stream frame analysis.
 - **Compression**: `JSZip` + `FileSaver.js` for client-side batch processing.
@@ -174,5 +193,8 @@ This project is licensed under the **MIT License** - free for personal, commerci
 ---
 
 <div align="center">
-  <sub>Built with ❤️ for the open-source community. No paywalls, forever free.</sub>
+
+### ✨ Developed with ❤️ by **[Gous Khan](https://github.com/Khangulamgousamjat)**
+<sub>ALL IN ONE QR GENERATER • Open-Source • Free Forever • Zero Paywalls</sub>
+
 </div>
