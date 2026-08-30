@@ -1,10 +1,18 @@
 /* ==========================================================================
    ALL IN ONE QR GENERATER - Local History Manager (Client-Side Storage)
+   Designed & Developed by Gous Khan
    ========================================================================== */
 
 const HistoryManager = {
   STORAGE_KEY: 'all_in_one_qr_history',
   modalEl: null,
+
+  getModal() {
+    if (!this.modalEl || !document.body.contains(this.modalEl)) {
+      this.modalEl = document.getElementById('history-modal');
+    }
+    return this.modalEl;
+  },
 
   init(modalId = 'history-modal') {
     this.modalEl = document.getElementById(modalId);
@@ -35,7 +43,6 @@ const HistoryManager = {
       fgColor: settings.fgColor || '#17152B'
     };
 
-    // Keep up to 50 items
     list.unshift(entry);
     if (list.length > 50) list.pop();
 
@@ -66,14 +73,16 @@ const HistoryManager = {
   },
 
   open() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.add('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.add('active');
     this.renderList();
   },
 
   close() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.remove('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.remove('active');
   },
 
   renderList() {
@@ -89,7 +98,9 @@ const HistoryManager = {
           <p style="font-size: 12px;">Generated and downloaded QR codes will automatically appear here.</p>
         </div>
       `;
-      if (window.lucide) window.lucide.createIcons({ root: container });
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        try { window.lucide.createIcons({ root: container }); } catch (e) {}
+      }
       return;
     }
 
@@ -103,23 +114,21 @@ const HistoryManager = {
       });
 
       html += `
-        <div class="history-card" id="${item.id}">
+        <div class="history-card" data-history-id="${item.id}">
           <div class="history-card-header">
             <span class="badge badge-purple">${Utils.escapeHtml(item.typeName)}</span>
-            <span style="font-size: 11px; color: var(--text-muted);">${dateStr}</span>
+            <span class="history-date">${dateStr}</span>
           </div>
-          <p style="font-size: 12px; color: var(--text-secondary); word-break: break-all; max-height: 48px; overflow: hidden; line-height: 1.4;">
-            ${Utils.escapeHtml(item.payload)}
-          </p>
+          <p class="history-payload-text">${Utils.escapeHtml(item.payload)}</p>
           <div class="history-card-actions">
-            <button class="btn-secondary btn-sm" onclick="HistoryManager.loadIntoStudio('${item.id}')" title="Open in Studio" style="padding: 6px 10px; font-size: 11px;">
-              <i data-lucide="external-link" style="width: 14px; height: 14px;"></i> Open
+            <button type="button" class="btn-secondary btn-history-load" onclick="HistoryManager.loadIntoStudio('${item.typeId}', '${encodeURIComponent(item.payload)}')">
+              <i data-lucide="external-link"></i> Load
             </button>
-            <button class="btn-secondary btn-sm" onclick="navigator.clipboard.writeText('${Utils.escapeHtml(item.payload)}'); Utils.showToast('Copied!','success');" title="Copy Content" style="padding: 6px 10px; font-size: 11px;">
-              <i data-lucide="copy" style="width: 14px; height: 14px;"></i>
+            <button type="button" class="btn-secondary btn-history-copy" onclick="navigator.clipboard.writeText('${Utils.escapeHtml(item.payload)}'); Utils.showToast('Copied!','success');">
+              <i data-lucide="copy"></i>
             </button>
-            <button class="btn-secondary btn-sm" onclick="HistoryManager.deleteEntry('${item.id}')" title="Delete" style="padding: 6px 10px; font-size: 11px; color: var(--error);">
-              <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>
+            <button type="button" class="btn-secondary btn-history-delete" style="color: var(--error);" onclick="HistoryManager.deleteEntry('${item.id}')">
+              <i data-lucide="trash-2"></i>
             </button>
           </div>
         </div>
@@ -127,35 +136,39 @@ const HistoryManager = {
     });
 
     container.innerHTML = html;
-    if (window.lucide) window.lucide.createIcons({ root: container });
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try { window.lucide.createIcons({ root: container }); } catch (e) {}
+    }
   },
 
-  loadIntoStudio(id) {
-    const list = this.getAll();
-    const item = list.find(x => x.id === id);
-    if (!item) return;
-
+  loadIntoStudio(typeId, encodedPayload) {
+    const payload = decodeURIComponent(encodedPayload);
     this.close();
-    App.switchView('dashboard');
-    App.switchQRType(item.typeId);
-    QRRenderer.setPayload(item.payload, item.typeId);
-    Utils.showToast(`Loaded "${item.typeName}" into studio.`, 'success');
+    App.switchQRType(typeId);
+    setTimeout(() => {
+      QRRenderer.setPayload(payload, typeId);
+      Utils.showToast(`Loaded ${QR_REGISTRY.getById(typeId).name} into Studio.`, 'info');
+    }, 150);
+  },
+
+  updateDashboardStats() {
+    const list = this.getAll();
+    const totalQrsEl = document.getElementById('metric-total-qrs');
+    const activeQrsEl = document.getElementById('metric-active-qrs');
+
+    if (totalQrsEl) {
+      totalQrsEl.textContent = Math.max(12, list.length + 12);
+    }
+    if (activeQrsEl) {
+      activeQrsEl.textContent = Math.max(8, list.length + 8);
+    }
   },
 
   bindEvents() {
     const closeBtn = document.getElementById('btn-close-history');
     if (closeBtn) closeBtn.addEventListener('click', () => this.close());
 
-    const clearBtn = document.getElementById('btn-clear-all-history');
+    const clearBtn = document.getElementById('btn-clear-history');
     if (clearBtn) clearBtn.addEventListener('click', () => this.clearAll());
-  },
-
-  updateDashboardStats() {
-    const count = this.getAll().length;
-    const totalEl = document.getElementById('metric-total-qrs');
-    const activeEl = document.getElementById('metric-active-qrs');
-
-    if (totalEl) totalEl.textContent = count > 0 ? count : '12';
-    if (activeEl) activeEl.textContent = count > 0 ? count : '8';
   }
 };

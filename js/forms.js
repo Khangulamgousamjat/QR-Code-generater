@@ -1,5 +1,6 @@
 /* ==========================================================================
    ALL IN ONE QR GENERATER - Dynamic Schema Form Engine
+   Designed & Developed by Gous Khan
    ========================================================================== */
 
 const FormEngine = {
@@ -8,16 +9,27 @@ const FormEngine = {
   customFieldsList: [],
   debounceTimer: null,
 
+  getContainer() {
+    if (!this.formContainerEl || !document.body.contains(this.formContainerEl)) {
+      this.formContainerEl = document.getElementById('form-container');
+    }
+    return this.formContainerEl;
+  },
+
   init(containerId = 'form-container') {
     this.formContainerEl = document.getElementById(containerId);
   },
 
   renderForm(qrTypeId) {
+    const container = this.getContainer();
+    if (!container) {
+      console.warn('Form container element not found in DOM');
+      return;
+    }
+
     const qrType = QR_REGISTRY.getById(qrTypeId);
     this.activeType = qrType;
     this.customFieldsList = [];
-
-    if (!this.formContainerEl) return;
 
     let html = `
       <div class="form-card animate-fade-in">
@@ -177,8 +189,10 @@ const FormEngine = {
       </div>
     `;
 
-    this.formContainerEl.innerHTML = html;
-    if (window.lucide) window.lucide.createIcons({ root: this.formContainerEl });
+    container.innerHTML = html;
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try { window.lucide.createIcons({ root: container }); } catch (e) {}
+    }
 
     this.bindEvents();
     this.handleFormChange(); // Trigger initial preview
@@ -191,7 +205,7 @@ const FormEngine = {
     // Real-time live input updates with debouncing
     form.addEventListener('input', () => {
       clearTimeout(this.debounceTimer);
-      this.debounceTimer = setTimeout(() => this.handleFormChange(), 180);
+      this.debounceTimer = setTimeout(() => this.handleFormChange(), 120);
     });
 
     form.addEventListener('change', () => {
@@ -224,7 +238,8 @@ const FormEngine = {
     const accordionToggle = document.getElementById('extra-accordion-toggle');
     const accordion = document.getElementById('extra-accordion');
     if (accordionToggle && accordion) {
-      accordionToggle.addEventListener('click', () => {
+      accordionToggle.addEventListener('click', (e) => {
+        e.preventDefault();
         accordion.classList.toggle('open');
       });
     }
@@ -232,13 +247,17 @@ const FormEngine = {
     // Add Custom Field Button
     const addCustomBtn = document.getElementById('btn-add-custom-field');
     if (addCustomBtn) {
-      addCustomBtn.addEventListener('click', () => this.addCustomField());
+      addCustomBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.addCustomField();
+      });
     }
 
     // GPS Location Picker
     const locBtn = document.getElementById('btn-get-location');
     if (locBtn) {
-      locBtn.addEventListener('click', () => {
+      locBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         if (navigator.geolocation) {
           Utils.showToast('Fetching GPS coordinates...', 'info');
           navigator.geolocation.getCurrentPosition(
@@ -263,7 +282,8 @@ const FormEngine = {
     // TOTP Secret Generator
     const totpBtn = document.getElementById('btn-generate-secret');
     if (totpBtn) {
-      totpBtn.addEventListener('click', () => {
+      totpBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         const secretInput = document.getElementById('field-secret');
         if (secretInput) {
           secretInput.value = Utils.generateTotpSecret();
@@ -292,12 +312,17 @@ const FormEngine = {
     `;
 
     container.appendChild(row);
-    if (window.lucide) window.lucide.createIcons({ root: row });
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try { window.lucide.createIcons({ root: row }); } catch (e) {}
+    }
 
-    row.querySelector('.remove-field-btn').addEventListener('click', () => {
-      row.remove();
-      this.handleFormChange();
-    });
+    const removeBtn = row.querySelector('.remove-field-btn');
+    if (removeBtn) {
+      removeBtn.addEventListener('click', () => {
+        row.remove();
+        this.handleFormChange();
+      });
+    }
 
     row.querySelectorAll('input').forEach(inp => {
       inp.addEventListener('input', () => this.handleFormChange());
@@ -308,8 +333,17 @@ const FormEngine = {
     const form = document.getElementById('active-qr-form');
     if (!form) return {};
 
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const data = {};
+    const inputs = form.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      if (input.name) {
+        if (input.type === 'checkbox') {
+          data[input.name] = input.checked;
+        } else {
+          data[input.name] = input.value;
+        }
+      }
+    });
 
     // Gather custom fields
     const customRows = document.querySelectorAll('.custom-field-row');
@@ -332,7 +366,12 @@ const FormEngine = {
     let payload = '';
 
     if (this.activeType && typeof this.activeType.buildPayload === 'function') {
-      payload = this.activeType.buildPayload(data);
+      try {
+        payload = this.activeType.buildPayload(data);
+      } catch (err) {
+        console.warn("Payload build error:", err);
+        payload = Object.values(data).filter(Boolean).join(' ') || 'ALL IN ONE QR GENERATER';
+      }
     } else {
       payload = Object.values(data).filter(Boolean).join(' ') || 'ALL IN ONE QR GENERATER';
     }

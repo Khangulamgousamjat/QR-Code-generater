@@ -1,9 +1,17 @@
 /* ==========================================================================
    ALL IN ONE QR GENERATER - QR Customization Studio UI
+   Designed & Developed by Gous Khan
    ========================================================================== */
 
 const CustomizerStudio = {
   modalEl: null,
+
+  getModal() {
+    if (!this.modalEl || !document.body.contains(this.modalEl)) {
+      this.modalEl = document.getElementById('customizer-modal');
+    }
+    return this.modalEl;
+  },
 
   init(modalId = 'customizer-modal') {
     this.modalEl = document.getElementById(modalId);
@@ -11,14 +19,16 @@ const CustomizerStudio = {
   },
 
   open(initialTab = 'shapes') {
-    if (!this.modalEl) return;
-    this.modalEl.classList.add('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.add('active');
     this.switchTab(initialTab);
   },
 
   close() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.remove('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.remove('active');
   },
 
   switchTab(tabId) {
@@ -46,7 +56,8 @@ const CustomizerStudio = {
 
     // Quick Options buttons in right preview panel
     document.querySelectorAll('.quick-opt-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const tab = btn.dataset.targetTab || 'shapes';
         this.open(tab);
       });
@@ -55,7 +66,10 @@ const CustomizerStudio = {
     // Top Preview Customize Button
     const topCustomBtn = document.getElementById('btn-open-customizer');
     if (topCustomBtn) {
-      topCustomBtn.addEventListener('click', () => this.open('shapes'));
+      topCustomBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.open('shapes');
+      });
     }
 
     // Module / Dot Shapes
@@ -98,7 +112,8 @@ const CustomizerStudio = {
     if (fgColorInput) {
       fgColorInput.addEventListener('input', (e) => {
         const val = e.target.value;
-        document.getElementById('text-fg-color').textContent = val;
+        const text = document.getElementById('text-fg-color');
+        if (text) text.textContent = val;
         QRRenderer.updateSettings({ fgColor: val });
         this.checkContrast();
       });
@@ -107,7 +122,8 @@ const CustomizerStudio = {
     if (bgColorInput) {
       bgColorInput.addEventListener('input', (e) => {
         const val = e.target.value;
-        document.getElementById('text-bg-color').textContent = val;
+        const text = document.getElementById('text-bg-color');
+        if (text) text.textContent = val;
         QRRenderer.updateSettings({ bgColor: val });
         this.checkContrast();
       });
@@ -116,7 +132,8 @@ const CustomizerStudio = {
     if (eyeColorInput) {
       eyeColorInput.addEventListener('input', (e) => {
         const val = e.target.value;
-        document.getElementById('text-eye-color').textContent = val;
+        const text = document.getElementById('text-eye-color');
+        if (text) text.textContent = val;
         QRRenderer.updateSettings({ cornerSquareColor: val, cornerDotColor: val });
       });
     }
@@ -124,7 +141,8 @@ const CustomizerStudio = {
     if (gradColorInput) {
       gradColorInput.addEventListener('input', (e) => {
         const val = e.target.value;
-        document.getElementById('text-grad-color').textContent = val;
+        const text = document.getElementById('text-grad-color');
+        if (text) text.textContent = val;
         QRRenderer.updateSettings({ gradientColor2: val });
       });
     }
@@ -132,7 +150,8 @@ const CustomizerStudio = {
     if (gradToggle) {
       gradToggle.addEventListener('change', (e) => {
         const enabled = e.target.checked;
-        document.getElementById('gradient-controls-wrapper').style.display = enabled ? 'flex' : 'none';
+        const wrapper = document.getElementById('gradient-controls-wrapper');
+        if (wrapper) wrapper.style.display = enabled ? 'flex' : 'none';
         QRRenderer.updateSettings({ useGradient: enabled });
       });
     }
@@ -144,9 +163,9 @@ const CustomizerStudio = {
         const bg = btn.dataset.bg;
         const eye = btn.dataset.eye || fg;
 
-        if (fgColorInput) { fgColorInput.value = fg; document.getElementById('text-fg-color').textContent = fg; }
-        if (bgColorInput) { bgColorInput.value = bg; document.getElementById('text-bg-color').textContent = bg; }
-        if (eyeColorInput) { eyeColorInput.value = eye; document.getElementById('text-eye-color').textContent = eye; }
+        if (fgColorInput) { fgColorInput.value = fg; const t = document.getElementById('text-fg-color'); if (t) t.textContent = fg; }
+        if (bgColorInput) { bgColorInput.value = bg; const t = document.getElementById('text-bg-color'); if (t) t.textContent = bg; }
+        if (eyeColorInput) { eyeColorInput.value = eye; const t = document.getElementById('text-eye-color'); if (t) t.textContent = eye; }
 
         QRRenderer.updateSettings({
           fgColor: fg,
@@ -156,7 +175,8 @@ const CustomizerStudio = {
           useGradient: false
         });
         if (gradToggle) gradToggle.checked = false;
-        document.getElementById('gradient-controls-wrapper').style.display = 'none';
+        const wrapper = document.getElementById('gradient-controls-wrapper');
+        if (wrapper) wrapper.style.display = 'none';
         this.checkContrast();
       });
     });
@@ -175,8 +195,10 @@ const CustomizerStudio = {
         reader.onload = (event) => {
           const imgUrl = event.target.result;
           QRRenderer.updateSettings({ logo: imgUrl });
-          document.getElementById('logo-preview-img').src = imgUrl;
-          document.getElementById('logo-preview-box').style.display = 'flex';
+          const img = document.getElementById('logo-preview-img');
+          const box = document.getElementById('logo-preview-box');
+          if (img) img.src = imgUrl;
+          if (box) box.style.display = 'flex';
           Utils.showToast('Logo added to QR code!', 'success');
         };
         reader.readAsDataURL(file);
@@ -186,7 +208,8 @@ const CustomizerStudio = {
     if (removeLogoBtn) {
       removeLogoBtn.addEventListener('click', () => {
         QRRenderer.updateSettings({ logo: null });
-        document.getElementById('logo-preview-box').style.display = 'none';
+        const box = document.getElementById('logo-preview-box');
+        if (box) box.style.display = 'none';
         if (logoFileInput) logoFileInput.value = '';
         Utils.showToast('Logo removed.', 'info');
       });
@@ -195,7 +218,8 @@ const CustomizerStudio = {
     if (logoSizeSlider) {
       logoSizeSlider.addEventListener('input', (e) => {
         const size = parseFloat(e.target.value);
-        document.getElementById('text-logo-size').textContent = `${Math.round(size * 100)}%`;
+        const text = document.getElementById('text-logo-size');
+        if (text) text.textContent = `${Math.round(size * 100)}%`;
         QRRenderer.updateSettings({ logoSize: size });
       });
     }
@@ -225,7 +249,8 @@ const CustomizerStudio = {
       });
 
       downloadMenu.querySelectorAll('.download-menu-item').forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
           const format = item.dataset.format || 'png';
           downloadMenu.classList.remove('show');
           QRRenderer.download(format);
@@ -245,11 +270,7 @@ const CustomizerStudio = {
     const ratio = Utils.getContrastRatio(s.fgColor, s.bgColor);
     const alertBox = document.getElementById('contrast-warning-alert');
     if (alertBox) {
-      if (ratio < 3.0) {
-        alertBox.style.display = 'flex';
-      } else {
-        alertBox.style.display = 'none';
-      }
+      alertBox.style.display = ratio < 3.0 ? 'flex' : 'none';
     }
   }
 };

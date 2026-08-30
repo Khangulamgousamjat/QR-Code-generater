@@ -1,10 +1,12 @@
 /* ==========================================================================
    ALL IN ONE QR GENERATER - Main Application Controller
+   Designed & Developed by Gous Khan
    ========================================================================== */
 
 const App = {
   currentView: 'landing', // 'landing' | 'dashboard'
   currentQRType: 'personal',
+  _initialized: false,
 
   init() {
     this.initTheme();
@@ -12,17 +14,9 @@ const App = {
     this.bindTopBarControls();
     this.bindLandingEvents();
     this.initSubsystems();
-
-    // Populate Sidebar Category counts
     this.populateSidebarCounts();
-
-    // Check URL parameters / hashes
     this.handleRoute();
-
-    // Initialize Lucide icons
-    if (window.lucide) {
-      window.lucide.createIcons();
-    }
+    this.refreshIcons();
   },
 
   initTheme() {
@@ -44,19 +38,19 @@ const App = {
     const btn = document.getElementById('btn-theme-toggle');
     if (btn) {
       btn.innerHTML = `<i data-lucide="${theme === 'dark' ? 'sun' : 'moon'}"></i>`;
-      if (window.lucide) window.lucide.createIcons({ root: btn });
+      this.refreshIcons(btn);
     }
   },
 
   initSubsystems() {
-    try { QRRenderer.init('qr-canvas-container'); } catch (e) { console.warn('QRRenderer init error:', e); }
-    try { FormEngine.init('form-container'); } catch (e) { console.warn('FormEngine init error:', e); }
-    try { CustomizerStudio.init('customizer-modal'); } catch (e) { console.warn('CustomizerStudio init error:', e); }
-    try { QRScanner.init('scanner-modal'); } catch (e) { console.warn('QRScanner init error:', e); }
-    try { HistoryManager.init('history-modal'); } catch (e) { console.warn('HistoryManager init error:', e); }
-    try { TemplatesEngine.init('templates-modal'); } catch (e) { console.warn('TemplatesEngine init error:', e); }
-    try { BulkEngine.init('bulk-modal'); } catch (e) { console.warn('BulkEngine init error:', e); }
-    try { AnalyticsManager.init('analytics-modal'); } catch (e) { console.warn('AnalyticsManager init error:', e); }
+    try { QRRenderer.init('qr-canvas-container'); } catch (e) { console.warn('QRRenderer init warning:', e); }
+    try { FormEngine.init('form-container'); } catch (e) { console.warn('FormEngine init warning:', e); }
+    try { CustomizerStudio.init('customizer-modal'); } catch (e) { console.warn('CustomizerStudio init warning:', e); }
+    try { QRScanner.init('scanner-modal'); } catch (e) { console.warn('QRScanner init warning:', e); }
+    try { HistoryManager.init('history-modal'); } catch (e) { console.warn('HistoryManager init warning:', e); }
+    try { TemplatesEngine.init('templates-modal'); } catch (e) { console.warn('TemplatesEngine init warning:', e); }
+    try { BulkEngine.init('bulk-modal'); } catch (e) { console.warn('BulkEngine init warning:', e); }
+    try { AnalyticsManager.init('analytics-modal'); } catch (e) { console.warn('AnalyticsManager init warning:', e); }
   },
 
   populateSidebarCounts() {
@@ -68,7 +62,6 @@ const App = {
       }
     });
 
-    // Populate Category sub-items inside sidebar accordions
     categories.forEach(cat => {
       const container = document.getElementById(`submenu-${cat}`);
       if (!container) return;
@@ -86,7 +79,7 @@ const App = {
       container.innerHTML = html;
     });
 
-    if (window.lucide) window.lucide.createIcons();
+    this.refreshIcons();
   },
 
   switchView(viewName) {
@@ -103,13 +96,13 @@ const App = {
       if (dashboard) dashboard.classList.add('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    this.refreshIcons();
   },
 
   switchQRType(typeId) {
     const item = QR_REGISTRY.getById(typeId);
     if (!item) return;
 
-    // Special tools handling
     if (item.isBulk) {
       BulkEngine.open();
       return;
@@ -122,21 +115,25 @@ const App = {
     this.currentQRType = typeId;
     this.switchView('dashboard');
 
-    // Update Topbar Title & Subtitle
     const titleEl = document.getElementById('topbar-title');
     const subtitleEl = document.getElementById('topbar-subtitle');
     if (titleEl) titleEl.textContent = item.name;
     if (subtitleEl) subtitleEl.textContent = item.subtitle || 'Create a customizable QR code.';
 
-    // Update Active Navigation Item states
     document.querySelectorAll('.nav-item, .sub-nav-item').forEach(el => {
       el.classList.toggle('active', el.dataset.typeId === typeId);
     });
 
+    // Expand parent category accordion if this is a sub-item
+    const activeSub = document.querySelector(`.sub-nav-item[data-type-id="${typeId}"]`);
+    if (activeSub) {
+      const parentGroup = activeSub.closest('.nav-accordion-group');
+      if (parentGroup) parentGroup.classList.add('open');
+    }
+
     // Render Dynamic Form
     FormEngine.renderForm(typeId);
 
-    // Close mobile drawer if open
     const sidebar = document.getElementById('sidebar');
     if (sidebar) sidebar.classList.remove('mobile-open');
   },
@@ -158,7 +155,7 @@ const App = {
       });
     });
 
-    // Submenu Items
+    // Submenu Items via Event Delegation
     document.addEventListener('click', (e) => {
       const subItem = e.target.closest('.sub-nav-item[data-type-id]');
       if (subItem) {
@@ -272,7 +269,7 @@ const App = {
     });
 
     container.innerHTML = html;
-    if (window.lucide) window.lucide.createIcons({ root: container });
+    this.refreshIcons(container);
   },
 
   openSettingsModal() {
@@ -286,21 +283,39 @@ const App = {
   },
 
   handleRoute() {
-    // Check if directly navigating to dashboard
-    if (window.location.search.includes('studio=1') || window.location.hash === '#studio') {
+    const search = window.location.search;
+    const hash = window.location.hash;
+
+    if (search.includes('studio=1') || hash === '#studio') {
       this.switchQRType('personal');
+    } else if (hash.startsWith('#type=')) {
+      const type = hash.replace('#type=', '').trim();
+      this.switchQRType(type);
     } else {
-      // Default to landing view, but have form ready
       try {
         FormEngine.renderForm('personal');
       } catch (e) {
         console.warn('Initial form render deferred:', e);
       }
     }
+  },
+
+  refreshIcons(root) {
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try {
+        if (root) {
+          window.lucide.createIcons({ root });
+        } else {
+          window.lucide.createIcons();
+        }
+      } catch (e) {
+        console.warn('Lucide icon refresh warning:', e);
+      }
+    }
   }
 };
 
-// Robust Global Click Handler for 100% Guaranteed CTA Execution
+// Global Click Delegation for Zero-Delay Studio Navigation
 document.addEventListener('click', (e) => {
   const cta = e.target.closest('.btn-open-studio, [data-action="open-studio"]');
   if (cta) {
@@ -335,4 +350,3 @@ if (document.readyState === 'loading') {
   initAppSafely();
 }
 window.addEventListener('load', initAppSafely);
-

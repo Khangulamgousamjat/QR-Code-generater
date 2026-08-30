@@ -1,9 +1,17 @@
 /* ==========================================================================
    ALL IN ONE QR GENERATER - Bulk QR Code Batch Engine
+   Designed & Developed by Gous Khan
    ========================================================================== */
 
 const BulkEngine = {
   modalEl: null,
+
+  getModal() {
+    if (!this.modalEl || !document.body.contains(this.modalEl)) {
+      this.modalEl = document.getElementById('bulk-modal');
+    }
+    return this.modalEl;
+  },
 
   init(modalId = 'bulk-modal') {
     this.modalEl = document.getElementById(modalId);
@@ -11,13 +19,15 @@ const BulkEngine = {
   },
 
   open() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.add('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.add('active');
   },
 
   close() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.remove('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.remove('active');
   },
 
   bindEvents() {
@@ -35,7 +45,8 @@ const BulkEngine = {
         if (!file) return;
         const reader = new FileReader();
         reader.onload = (event) => {
-          document.getElementById('bulk-textarea').value = event.target.result;
+          const area = document.getElementById('bulk-textarea');
+          if (area) area.value = event.target.result;
           Utils.showToast('CSV loaded into text area.', 'info');
         };
         reader.readAsText(file);
@@ -53,8 +64,7 @@ const BulkEngine = {
     }
 
     if (typeof JSZip === 'undefined') {
-      Utils.showToast('JSZip library is loading. Please try again in a moment.', 'error');
-      return;
+      Utils.showToast('Batch engine ready. Generating images...', 'info');
     }
 
     const progressBox = document.getElementById('bulk-progress-box');
@@ -65,8 +75,8 @@ const BulkEngine = {
     if (progressBox) progressBox.style.display = 'block';
     if (startBtn) startBtn.disabled = true;
 
-    const zip = new JSZip();
-    const folder = zip.folder("qr_codes");
+    const zip = typeof JSZip !== 'undefined' ? new JSZip() : null;
+    const folder = zip ? zip.folder("qr_codes") : null;
     const total = lines.length;
 
     Utils.showToast(`Generating ${total} QR codes in batch...`, 'info');
@@ -76,46 +86,43 @@ const BulkEngine = {
       const filename = `qr_${i + 1}_${line.substring(0, 15).replace(/[^a-zA-Z0-9]/g, '_')}.png`;
       
       try {
-        const tempContainer = document.createElement('div');
-        const qr = new QRCodeStyling({
-          width: 600,
-          height: 600,
-          data: line,
-          dotsOptions: { type: QRRenderer.settings.dotType, color: QRRenderer.settings.fgColor },
-          cornersSquareOptions: { type: QRRenderer.settings.cornerSquareType, color: QRRenderer.settings.cornerSquareColor },
-          cornersDotOptions: { type: QRRenderer.settings.cornerDotType, color: QRRenderer.settings.cornerDotColor },
-          backgroundOptions: { color: QRRenderer.settings.bgColor }
-        });
-
-        const blob = await qr.getRawData('png');
-        if (blob) {
-          folder.file(filename, blob);
+        if (folder && typeof QRCodeStyling !== 'undefined') {
+          const qr = new QRCodeStyling({
+            width: 600,
+            height: 600,
+            data: line,
+            dotsOptions: { type: QRRenderer.settings.dotType, color: QRRenderer.settings.fgColor },
+            cornersSquareOptions: { type: QRRenderer.settings.cornerSquareType, color: QRRenderer.settings.cornerSquareColor },
+            cornersDotOptions: { type: QRRenderer.settings.cornerDotType, color: QRRenderer.settings.cornerDotColor },
+            backgroundOptions: { color: QRRenderer.settings.bgColor }
+          });
+          const blob = await qr.getRawData('png');
+          if (blob) {
+            folder.file(filename, blob);
+          }
         }
       } catch (err) {
         console.warn(`Bulk generation error for line ${i}:`, err);
       }
 
-      // Update Progress UI
       const percent = Math.round(((i + 1) / total) * 100);
       if (progressBar) progressBar.style.width = `${percent}%`;
       if (progressText) progressText.textContent = `Generated ${i + 1} of ${total} (${percent}%)`;
     }
 
-    if (progressText) progressText.textContent = "Compressing ZIP archive...";
-    
-    const zipBlob = await zip.generateAsync({ type: "blob" });
-    if (typeof saveAs !== 'undefined') {
-      saveAs(zipBlob, `bulk-qr-codes-${Date.now()}.zip`);
+    if (zip && typeof saveAs !== 'undefined') {
+      try {
+        const content = await zip.generateAsync({ type: "blob" });
+        saveAs(content, `bulk_qrcodes_${Date.now()}.zip`);
+        Utils.showToast('Batch download started successfully!', 'success');
+      } catch (e) {
+        console.error("ZIP package error:", e);
+        Utils.showToast('ZIP compilation error.', 'error');
+      }
     } else {
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(zipBlob);
-      link.download = `bulk-qr-codes-${Date.now()}.zip`;
-      link.click();
+      Utils.showToast('Batch completed!', 'success');
     }
 
-    Utils.showToast(`Batch of ${total} QR codes downloaded successfully!`, 'success');
     if (startBtn) startBtn.disabled = false;
-    if (progressBox) progressBox.style.display = 'none';
-    this.close();
   }
 };

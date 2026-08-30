@@ -1,5 +1,6 @@
 /* ==========================================================================
    ALL IN ONE QR GENERATER - Integrated Scanner & Decoder
+   Designed & Developed by Gous Khan
    ========================================================================== */
 
 const QRScanner = {
@@ -9,6 +10,13 @@ const QRScanner = {
   stream: null,
   scanning: false,
 
+  getModal() {
+    if (!this.modalEl || !document.body.contains(this.modalEl)) {
+      this.modalEl = document.getElementById('scanner-modal');
+    }
+    return this.modalEl;
+  },
+
   init(modalId = 'scanner-modal') {
     this.modalEl = document.getElementById(modalId);
     this.videoEl = document.getElementById('scanner-video');
@@ -17,14 +25,16 @@ const QRScanner = {
   },
 
   open() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.add('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.add('active');
     this.startCamera();
   },
 
   close() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.remove('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.remove('active');
     this.stopCamera();
   },
 
@@ -67,6 +77,7 @@ const QRScanner = {
       this.stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: 'environment' }
       });
+      this.videoEl = this.videoEl || document.getElementById('scanner-video');
       if (this.videoEl) {
         this.videoEl.srcObject = this.stream;
         this.videoEl.setAttribute('playsinline', true);
@@ -95,7 +106,8 @@ const QRScanner = {
     }
 
     const video = this.videoEl;
-    const canvas = this.canvasEl;
+    const canvas = this.canvasEl || document.createElement('canvas');
+    this.canvasEl = canvas;
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     const ctx = canvas.getContext('2d');
@@ -128,7 +140,8 @@ const QRScanner = {
     reader.onload = (e) => {
       const img = new Image();
       img.onload = () => {
-        const canvas = this.canvasEl;
+        const canvas = this.canvasEl || document.createElement('canvas');
+        this.canvasEl = canvas;
         canvas.width = img.width;
         canvas.height = img.height;
         const ctx = canvas.getContext('2d');
@@ -165,7 +178,6 @@ const QRScanner = {
     resultBox.style.display = 'flex';
     resultText.textContent = data;
 
-    // Intelligent Payload Inspection
     let actionsHtml = `<button class="btn-secondary" id="btn-copy-scan-result"><i data-lucide="copy"></i> Copy Content</button>`;
 
     if (/^https?:\/\//i.test(data)) {
@@ -203,7 +215,9 @@ const QRScanner = {
     }
 
     resultActions.innerHTML = actionsHtml;
-    if (window.lucide) window.lucide.createIcons({ root: resultActions });
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try { window.lucide.createIcons({ root: resultActions }); } catch (e) {}
+    }
 
     const copyBtn = document.getElementById('btn-copy-scan-result');
     if (copyBtn) {

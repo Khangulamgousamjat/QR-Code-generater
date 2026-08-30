@@ -1,9 +1,17 @@
 /* ==========================================================================
    ALL IN ONE QR GENERATER - Templates Engine
+   Designed & Developed by Gous Khan
    ========================================================================== */
 
 const TemplatesEngine = {
   modalEl: null,
+
+  getModal() {
+    if (!this.modalEl || !document.body.contains(this.modalEl)) {
+      this.modalEl = document.getElementById('templates-modal');
+    }
+    return this.modalEl;
+  },
 
   templatesList: [
     {
@@ -131,14 +139,16 @@ const TemplatesEngine = {
   },
 
   open() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.add('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.add('active');
     this.render();
   },
 
   close() {
-    if (!this.modalEl) return;
-    this.modalEl.classList.remove('active');
+    const modal = this.getModal();
+    if (!modal) return;
+    modal.classList.remove('active');
   },
 
   render() {
@@ -169,7 +179,9 @@ const TemplatesEngine = {
     });
 
     container.innerHTML = html;
-    if (window.lucide) window.lucide.createIcons({ root: container });
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      try { window.lucide.createIcons({ root: container }); } catch (e) {}
+    }
   },
 
   applyTemplate(templateId) {
@@ -193,7 +205,7 @@ const TemplatesEngine = {
         FormEngine.handleFormChange();
         Utils.showToast(`Applied "${tpl.name}" template!`, 'success');
       }
-    }, 50);
+    }, 80);
   },
 
   bindEvents() {
