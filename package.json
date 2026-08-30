@@ -1,8 +1,8 @@
 {
-  "name": "qr-craft",
+  "name": "all-in-one-qr",
   "version": "2.0.0",
   "private": true,
-  "description": "QR Craft - Professional Free QR Generator Platform",
+  "description": "ALL IN ONE - Professional Free QR Generator Platform",
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",

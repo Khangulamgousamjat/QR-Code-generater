@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Craft - Professional QR Generator | 100% Free Custom QR Platform</title>
-  <meta name="description" content="Generate 100% free customizable QR codes for links, personal details, Wi-Fi, UPI payments, business cards, text, and 44+ formats. No login required. Created with passion by Gous Khan.">
+  <title>ALL IN ONE - Professional QR Generator | Free Custom QR Platform</title>
+  <meta name="description" content="Generate 100% free customizable QR codes for links, personal details, Wi-Fi, UPI payments, business cards, text, and all specialized formats. No login required. Created with passion by Gous Khan.">
 
   <!-- Google Fonts: Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1632,11 +1632,11 @@ button {
   line-height: 1.6;
 }
 
-.qr-matrix-section {
+.qr-matrix-section,
+.landing-matrix-section {
   padding: 80px 40px;
-  background: var(--bg-subtle);
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .qr-matrix-container {
@@ -1644,10 +1644,11 @@ button {
   margin: 0 auto;
 }
 
+.matrix-filter-tabs,
 .matrix-categories-tabs {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 36px;
   flex-wrap: wrap;
 }
@@ -1775,17 +1776,37 @@ button {
 .landing-footer {
   background: var(--bg-card);
   border-top: 1px solid var(--border-color);
-  padding: 40px 40px 30px;
+  padding: 50px 40px 35px;
 }
 
-.footer-inner {
+.landing-footer-inner {
   max-width: 1280px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 28px;
+}
+
+.footer-top-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.footer-bottom-grid {
+  width: 100%;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
 }
 
 .footer-copy {
@@ -2369,14 +2390,14 @@ button {
           </svg>
         </div>
         <div class="sidebar-brand-text">
-          <span class="sidebar-brand-name">QR Craft</span>
+          <span class="sidebar-brand-name">ALL IN ONE</span>
           <span class="sidebar-brand-sub">Professional QR Generator</span>
         </div>
       </a>
 
       <nav class="landing-nav-links">
         <a href="#features" class="landing-nav-link">Features</a>
-        <a href="#types" class="landing-nav-link">44+ QR Types</a>
+        <a href="#types" class="landing-nav-link">QR Types</a>
         <a href="#how-it-works" class="landing-nav-link">How It Works</a>
         <a href="#faq" class="landing-nav-link">FAQ</a>
       </nav>
@@ -2403,7 +2424,7 @@ button {
       </h1>
 
       <p class="hero-subtitle">
-        Generate customizable QR codes for links, text, contact details, Wi-Fi, payments, business information and 44+ specialized formats. No account or signup required.
+        Generate customizable QR codes for links, text, contact details, Wi-Fi, payments, business information and all specialized formats. No account or signup required.
       </p>
 
       <div class="hero-cta-group">
@@ -2413,7 +2434,7 @@ button {
         </button>
         <a href="#types" class="btn-hero-secondary">
           <i data-lucide="grid" style="width: 18px; height: 18px;"></i>
-          <span>Explore 44+ Types</span>
+          <span>Explore QR Types</span>
         </a>
       </div>
 
@@ -2478,7 +2499,7 @@ button {
     <!-- Why Choose Section / Features -->
     <section id="features" class="landing-features-section">
       <div class="landing-section-header">
-        <span class="badge badge-purple" style="margin-bottom: 8px;">WHY QR CRAFT</span>
+        <span class="badge badge-purple" style="margin-bottom: 8px;">WHY ALL IN ONE</span>
         <h2 class="landing-section-title">Everything You Need. Zero Restrictions.</h2>
         <p class="landing-section-subtitle">Crafted for creators, businesses, developers, and everyday users worldwide.</p>
       </div>
@@ -2504,7 +2525,7 @@ button {
 
         <div class="feature-card">
           <div class="feature-icon-wrapper"><i data-lucide="layers"></i></div>
-          <h3 class="feature-card-title">44+ Specialized Types</h3>
+          <h3 class="feature-card-title">Diverse Specialized Types</h3>
           <p class="feature-card-desc">From standard URLs and Wi-Fi to Indian UPI payments, vCards, event tickets, TOTP 2FA, and business invoices.</p>
         </div>
 
@@ -2522,17 +2543,17 @@ button {
       </div>
     </section>
 
-    <!-- 44+ QR Types Matrix Directory -->
+    <!-- QR Types Matrix Directory -->
     <section id="types" class="landing-matrix-section">
       <div class="landing-section-header">
         <span class="badge badge-purple" style="margin-bottom: 8px;">ALL-IN-ONE DIRECTORY</span>
-        <h2 class="landing-section-title">Explore All 44+ QR Code Types</h2>
+        <h2 class="landing-section-title">Explore All QR Code Types</h2>
         <p class="landing-section-subtitle">Click any category or card to immediately launch into that dedicated generator studio.</p>
       </div>
 
       <!-- Filter Tabs -->
       <div class="matrix-filter-tabs">
-        <button type="button" class="matrix-tab-btn active" data-category="all">All Formats (44+)</button>
+        <button type="button" class="matrix-tab-btn active" data-category="all">All Formats</button>
         <button type="button" class="matrix-tab-btn" data-category="basic">Basic (9)</button>
         <button type="button" class="matrix-tab-btn" data-category="business">Business (12)</button>
         <button type="button" class="matrix-tab-btn" data-category="payments">Payments (4)</button>
@@ -2556,7 +2577,7 @@ button {
         <div class="feature-card" style="text-align: center; align-items: center;">
           <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 12px;">1</div>
           <h3 class="feature-card-title">Choose Your Format</h3>
-          <p class="feature-card-desc">Select Personal Details, URL, UPI, Wi-Fi, vCard, or any of the 44+ specialized templates from the sidebar.</p>
+          <p class="feature-card-desc">Select Personal Details, URL, UPI, Wi-Fi, vCard, or any of the specialized templates from the sidebar.</p>
         </div>
 
         <div class="feature-card" style="text-align: center; align-items: center;">
@@ -2588,7 +2609,7 @@ button {
             <i data-lucide="chevron-down" class="faq-chevron"></i>
           </button>
           <div class="faq-answer">
-            <p>Yes! All 44+ QR code generators, high-resolution downloads, and customization options are 100% free with no account creation, subscription, or watermark required.</p>
+            <p>Yes! All QR code generators, high-resolution downloads, and customization options are 100% free with no account creation, subscription, or watermark required.</p>
           </div>
         </div>
 
@@ -2624,11 +2645,11 @@ button {
       </div>
     </section>
 
-    <!-- Landing Footer -->
+    <!-- Landing Footer (Centered with Clean Star on GitHub) -->
     <footer class="landing-footer">
       <div class="landing-footer-inner">
         <div class="footer-top-row">
-          <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
             <div class="sidebar-logo-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <rect width="5" height="5" x="3" y="3" rx="1"/>
@@ -2646,19 +2667,18 @@ button {
               </svg>
             </div>
             <div>
-              <strong style="font-size: 16px; color: var(--text-main); display: block;">QR Craft</strong>
-              <span style="font-size: 11.5px; color: var(--text-secondary);">100% Free Forever • No Sign Up Required</span>
+              <strong style="font-size: 17px; color: var(--text-main); display: block;">ALL IN ONE</strong>
+              <span style="font-size: 12px; color: var(--text-secondary);">Professional QR Generator • 100% Free Forever</span>
             </div>
           </div>
 
-          <!-- GitHub Repo Star Link -->
-          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <!-- GitHub Repo Star Link (Clean, centered, no extra yellow badge) -->
+          <div style="display: flex; align-items: center; justify-content: center;">
             <a href="https://github.com/Khangulamgousamjat/QR-Code-generater" target="_blank" rel="noopener noreferrer" class="btn-github-star" title="Star this repository on GitHub">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="#F59E0B" stroke="none">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
               </svg>
               <span>Star on GitHub</span>
-              <span class="star-badge">★ Star Repo</span>
             </a>
           </div>
         </div>
@@ -2725,7 +2745,7 @@ button {
           </svg>
         </div>
         <div class="sidebar-brand-text">
-          <span class="sidebar-brand-name">QR Craft</span>
+          <span class="sidebar-brand-name">ALL IN ONE</span>
           <span class="sidebar-brand-sub">Professional QR Generator</span>
         </div>
       </div>
@@ -3541,7 +3561,7 @@ button {
           <li>Click <strong>Download</strong> and choose PNG, JPG, or SVG vector.</li>
         </ol>
 
-        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-main);">Scanning Tips:</h4>
+        <h4 style="font-size: 14px; font-weight: 700; color: var(--text-main); margin-top: 10px;">Scanning Tips:</h4>
         <p style="font-size: 12.5px; color: var(--text-secondary);">
           Maintain high contrast between foreground and background colors. If embedding a large logo, use High (H) error correction.
         </p>
@@ -3549,7 +3569,7 @@ button {
         <div style="margin-top: 16px; text-align: center;">
           <a href="https://github.com/Khangulamgousamjat" target="_blank" class="made-by-badge">
             <span class="heart-beat">❤️</span>
-            <span class="shimmer-text">QR Craft • Crafted by Gous Khan</span>
+            <span class="shimmer-text">ALL IN ONE • Crafted by Gous Khan</span>
           </a>
         </div>
       </div>
@@ -3566,7 +3586,7 @@ button {
   <!-- Master Production Self-Contained JavaScript Engine -->
   <script>
 /* ==========================================================================
-   QR CRAFT - Professional QR Generator Master Bundle
+   ALL IN ONE - Professional QR Generator Master Bundle
    Designed & Developed by Gous Khan
    ========================================================================== */
 
@@ -3834,7 +3854,7 @@ const Utils = {
     const lines = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//QR CRAFT//EN',
+      'PRODID:-//ALL IN ONE//EN',
       'BEGIN:VEVENT',
       `SUMMARY:${data.title || 'Event'}`
     ];

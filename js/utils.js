@@ -260,7 +260,7 @@ const Utils = {
     const lines = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//QR CRAFT//EN',
+      'PRODID:-//ALL IN ONE//EN',
       'BEGIN:VEVENT',
       `SUMMARY:${data.title || 'Event'}`
     ];
