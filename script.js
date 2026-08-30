@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ALL IN ONE QR GENERATER - Master JavaScript Bundle
+   QR CRAFT - Professional QR Generator Master Bundle
    Designed & Developed by Gous Khan
    ========================================================================== */
 
@@ -156,6 +156,15 @@ const Utils = {
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
+  },
+
+  normalizeUrl(url) {
+    if (!url) return '';
+    url = url.trim();
+    if (!/^https?:\/\//i.test(url) && !url.startsWith('//')) {
+      return 'https://' + url;
+    }
+    return url;
   },
 
   // Color Contrast Ratio Calculator (WCAG Compliance check)

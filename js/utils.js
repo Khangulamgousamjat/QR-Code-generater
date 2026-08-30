@@ -151,6 +151,15 @@ const Utils = {
       .replace(/'/g, '&#039;');
   },
 
+  normalizeUrl(url) {
+    if (!url) return '';
+    url = url.trim();
+    if (!/^https?:\/\//i.test(url) && !url.startsWith('//')) {
+      return 'https://' + url;
+    }
+    return url;
+  },
+
   // Color Contrast Ratio Calculator (WCAG Compliance check)
   getContrastRatio(hex1, hex2) {
     function getLuminance(hex) {
