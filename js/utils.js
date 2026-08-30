@@ -233,32 +233,41 @@ const Utils = {
   },
 
   buildUpi(data) {
+    if (!data) return 'upi://pay';
     const params = new URLSearchParams();
-    if (data.pa) params.set('pa', data.pa.trim());
-    if (data.pn) params.set('pn', data.pn.trim());
+    if (data.pa) params.set('pa', String(data.pa).trim());
+    if (data.pn) params.set('pn', String(data.pn).trim());
     if (data.am && Number(data.am) > 0) params.set('am', parseFloat(data.am).toFixed(2));
     if (data.cu) params.set('cu', data.cu || 'INR');
-    if (data.tn) params.set('tn', data.tn.trim());
-    if (data.tr) params.set('tr', data.tr.trim());
-    if (data.mc) params.set('mc', data.mc.trim());
+    if (data.tn) params.set('tn', String(data.tn).trim());
+    if (data.tr) params.set('tr', String(data.tr).trim());
+    if (data.mc) params.set('mc', String(data.mc).trim());
     return `upi://pay?${params.toString()}`;
   },
 
   buildCalendarEvent(data) {
+    if (!data) data = {};
     function formatDate(dtStr) {
       if (!dtStr) return '';
-      const d = new Date(dtStr);
-      return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+      try {
+        const d = new Date(dtStr);
+        if (isNaN(d.getTime())) return '';
+        return d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+      } catch (e) {
+        return '';
+      }
     }
     const lines = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//ALL IN ONE QR GENERATER//EN',
+      'PRODID:-//QR CRAFT//EN',
       'BEGIN:VEVENT',
-      `SUMMARY:${data.title || 'Event'}`,
-      `DTSTART:${formatDate(data.startDate)}`,
-      `DTEND:${formatDate(data.endDate || data.startDate)}`
+      `SUMMARY:${data.title || 'Event'}`
     ];
+    const start = formatDate(data.startDate);
+    const end = formatDate(data.endDate || data.startDate);
+    if (start) lines.push(`DTSTART:${start}`);
+    if (end) lines.push(`DTEND:${end}`);
     if (data.location) lines.push(`LOCATION:${data.location}`);
     if (data.description) lines.push(`DESCRIPTION:${data.description}`);
     lines.push('END:VEVENT', 'END:VCALENDAR');
@@ -305,3 +314,7 @@ const Utils = {
     }
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.Utils = Utils;
+}

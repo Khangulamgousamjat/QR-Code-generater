@@ -213,3 +213,7 @@ const TemplatesEngine = {
     if (closeBtn) closeBtn.addEventListener('click', () => this.close());
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.TemplatesEngine = TemplatesEngine;
+}

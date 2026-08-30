@@ -126,3 +126,7 @@ const BulkEngine = {
     if (startBtn) startBtn.disabled = false;
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.BulkEngine = BulkEngine;
+}

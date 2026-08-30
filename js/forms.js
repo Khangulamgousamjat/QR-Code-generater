@@ -10,7 +10,7 @@ const FormEngine = {
   debounceTimer: null,
 
   getContainer() {
-    if (!this.formContainerEl || !document.body.contains(this.formContainerEl)) {
+    if (!this.formContainerEl || (document.body && document.body.contains && !document.body.contains(this.formContainerEl))) {
       this.formContainerEl = document.getElementById('form-container');
     }
     return this.formContainerEl;
@@ -379,3 +379,7 @@ const FormEngine = {
     QRRenderer.setPayload(payload, this.activeType ? this.activeType.id : 'personal');
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.FormEngine = FormEngine;
+}

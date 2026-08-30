@@ -315,6 +315,11 @@ const App = {
   }
 };
 
+// Ensure App is universally available on window object
+if (typeof window !== 'undefined') {
+  window.App = App;
+}
+
 // Global Click Delegation for Zero-Delay Studio Navigation
 document.addEventListener('click', (e) => {
   const cta = e.target.closest('.btn-open-studio, [data-action="open-studio"]');

@@ -1,0 +1,21 @@
+{
+  "name": "qr-craft",
+  "version": "2.0.0",
+  "private": true,
+  "description": "QR Craft - Professional Free QR Generator Platform",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "node -e \"console.log('Static build ready.')\""
+  },
+  "keywords": [
+    "qr-code",
+    "qr-generator",
+    "vcard",
+    "upi",
+    "wifi-qr",
+    "totp-2fa"
+  ],
+  "author": "Gous Khan",
+  "license": "MIT"
+}

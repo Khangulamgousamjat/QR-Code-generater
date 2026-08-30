@@ -242,3 +242,7 @@ const QRScanner = {
     }
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.QRScanner = QRScanner;
+}

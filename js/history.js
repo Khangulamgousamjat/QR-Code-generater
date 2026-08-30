@@ -172,3 +172,7 @@ const HistoryManager = {
     if (clearBtn) clearBtn.addEventListener('click', () => this.clearAll());
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.HistoryManager = HistoryManager;
+}

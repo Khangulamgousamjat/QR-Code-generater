@@ -272,7 +272,7 @@ const QRRenderer = {
   },
 
   getContainer() {
-    if (!this.containerEl || !document.body.contains(this.containerEl)) {
+    if (!this.containerEl || (document.body && document.body.contains && !document.body.contains(this.containerEl))) {
       this.containerEl = document.getElementById('qr-canvas-container');
     }
     return this.containerEl;
@@ -561,3 +561,7 @@ const QRRenderer = {
     }
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.QRRenderer = QRRenderer;
+}

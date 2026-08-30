@@ -745,3 +745,7 @@ QR_REGISTRY.getById = function(id) {
 QR_REGISTRY.getByCategory = function(cat) {
   return QR_REGISTRY.filter(item => item.category === cat);
 };
+
+if (typeof window !== 'undefined') {
+  window.QR_REGISTRY = QR_REGISTRY;
+}

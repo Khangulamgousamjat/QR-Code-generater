@@ -274,3 +274,7 @@ const CustomizerStudio = {
     }
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.CustomizerStudio = CustomizerStudio;
+}

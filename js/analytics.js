@@ -194,3 +194,7 @@ const AnalyticsManager = {
     if (closeBtn) closeBtn.addEventListener('click', () => this.close());
   }
 };
+
+if (typeof window !== 'undefined') {
+  window.AnalyticsManager = AnalyticsManager;
+}
