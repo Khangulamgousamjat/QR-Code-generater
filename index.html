@@ -23,8 +23,7 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- Inlined Master Stylesheet for 100% Guaranteed Zero-Latency First-Paint Styling -->
-  <style>
-/* ==========================================================================
+  <style>\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Complete Master Stylesheet
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -721,10 +720,10 @@ button {
 
 /* Studio Content Layout */
 .studio-container {
-  padding: 24px 28px 40px;
+  padding: 32px 28px 44px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 26px;
   max-width: 1480px;
   margin: 0 auto;
   width: 100%;
@@ -2352,7 +2351,7 @@ button {
 }
 
 .modal-container.modal-large {
-  max-width: 780px;
+  max-width: 860px;
 }
 
 .modal-backdrop.active .modal-container {
@@ -2429,19 +2428,26 @@ button {
 
 .customizer-tabs-nav {
   display: flex;
-  gap: 8px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
   border-bottom: 1px solid var(--border-light);
-  padding: 0 24px;
+  padding: 0 20px;
   background: var(--bg-app);
   overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.customizer-tabs-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .customizer-tab {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 16px;
-  font-size: 13px;
+  gap: 6px;
+  padding: 12px 14px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text-secondary);
   background: transparent;
@@ -2449,6 +2455,7 @@ button {
   border-bottom: 2.5px solid transparent;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: all var(--transition-fast);
 }
 
@@ -2809,8 +2816,7 @@ input:checked + .slider:before {
 @media screen and (max-width: 480px) {
   .matrix-cards-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: 28px; }
-}
-  </style>
+}\n  </style>
 </head>
 
 <body>
@@ -3133,28 +3139,39 @@ input:checked + .slider:before {
         </div>
 
         <div class="footer-bottom-grid">
+          <!-- Left: Contact Email -->
+          <a href="mailto:gousk2004@gmail.com" class="footer-contact-link" title="Contact Developer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            <span>gousk2004@gmail.com</span>
+          </a>
+
+          <!-- Middle: Crafted with passion -->
           <a href="https://github.com/Khangulamgousamjat" target="_blank" rel="noopener noreferrer" class="author-footer-badge" title="Developer Profile">
             <span class="heart-beat">❤️</span>
             <span>Crafted with passion by <strong class="shimmer-text">Gous Khan</strong></span>
           </a>
 
+          <!-- Right: Social Links -->
           <div class="footer-social-links">
             <a href="https://github.com/Khangulamgousamjat" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="GitHub - @Khangulamgousamjat">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
               </svg>
               <span>GitHub</span>
             </a>
 
             <a href="https://www.linkedin.com/in/gous-khan-41270233b/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="LinkedIn - Gous Khan">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="#0A66C2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
               <span>LinkedIn</span>
             </a>
 
             <a href="https://github.com/Khangulamgousamjat/QR-Code-generater" target="_blank" rel="noopener noreferrer" class="footer-social-btn" title="GitHub Repository">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
                 <line x1="2" y1="12" x2="22" y2="12"></line>
                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
@@ -4033,15 +4050,7 @@ input:checked + .slider:before {
   <div id="toast-container" class="toast-container"></div>
 
   <!-- Master Production Self-Contained JavaScript Engine -->
-  <script>
-/* ==========================================================================
-   ALL IN ONE - Professional QR Generator Master Bundle
-   Designed & Developed by Gous Khan
-   ========================================================================== */
-
-
-// --- js/utils.js ---
-/* ==========================================================================
+  <script>\n/* ==========================================================================\n   ALL IN ONE - Professional QR Generator Master Bundle\n   Designed & Developed by Gous Khan\n   ========================================================================== */\n\n\n// --- js/utils.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Utilities & Built-in SVG Icon Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -4361,10 +4370,7 @@ const Utils = {
 if (typeof window !== 'undefined') {
   window.Utils = Utils;
 }
-
-
-// --- js/qr-registry.js ---
-/* ==========================================================================
+\n\n// --- js/qr-registry.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - 44 QR Types Registry & Schema Definitions
    ========================================================================== */
 
@@ -4379,14 +4385,14 @@ const QR_REGISTRY = [
     icon: "user",
     subtitle: "Create a QR code for personal information and contact details.",
     fields: [
-      { name: "fullName", label: "Full Name", type: "text", placeholder: "e.g., John Doe", icon: "user" },
-      { name: "nickname", label: "Nickname", type: "text", placeholder: "e.g., Johnny", icon: "smile" },
+      { name: "fullName", label: "Full Name", type: "text", placeholder: "e.g., Rajesh Sharma", icon: "user" },
+      { name: "nickname", label: "Nickname", type: "text", placeholder: "e.g., Raj", icon: "smile" },
       { name: "phone", label: "Phone Number", type: "tel", placeholder: "e.g., +91 98765 43210", icon: "phone" },
-      { name: "email", label: "Email Address", type: "email", placeholder: "e.g., john@example.com", icon: "mail" },
-      { name: "website", label: "Website", type: "url", placeholder: "e.g., https://johndoe.com", icon: "globe" },
-      { name: "company", label: "Company", type: "text", placeholder: "e.g., Acme Corporation", icon: "building" },
-      { name: "jobTitle", label: "Job Title", type: "text", placeholder: "e.g., Software Developer", icon: "briefcase" },
-      { name: "address", label: "Address", type: "text", placeholder: "e.g., 123 Main Street, City", icon: "map-pin" },
+      { name: "email", label: "Email Address", type: "email", placeholder: "e.g., rajesh.sharma@example.com", icon: "mail" },
+      { name: "website", label: "Website", type: "url", placeholder: "e.g., https://rajeshsharma.in", icon: "globe" },
+      { name: "company", label: "Company", type: "text", placeholder: "e.g., Tata Consultancy Services", icon: "building" },
+      { name: "jobTitle", label: "Job Title", type: "text", placeholder: "e.g., Senior Software Engineer", icon: "briefcase" },
+      { name: "address", label: "Address", type: "text", placeholder: "e.g., MG Road, Bengaluru, Karnataka", icon: "map-pin" },
       { name: "dob", label: "Date of Birth", type: "date", icon: "calendar" },
       { name: "bio", label: "Bio / About", type: "textarea", placeholder: "Tell something about yourself...", icon: "file-text" }
     ],
@@ -4487,13 +4493,13 @@ const QR_REGISTRY = [
     icon: "contact",
     subtitle: "Generates an industry standard vCard 3.0 file for easy contact saving.",
     fields: [
-      { name: "fullName", label: "Full Name", type: "text", placeholder: "Jane Smith", icon: "user" },
-      { name: "company", label: "Company / Org", type: "text", placeholder: "Tech Global Inc.", icon: "building" },
+      { name: "fullName", label: "Full Name", type: "text", placeholder: "Priya Sharma", icon: "user" },
+      { name: "company", label: "Company / Org", type: "text", placeholder: "Infosys Technologies Ltd", icon: "building" },
       { name: "jobTitle", label: "Job Title", type: "text", placeholder: "Product Director", icon: "briefcase" },
-      { name: "phone", label: "Phone", type: "tel", placeholder: "+1-555-0199", icon: "phone" },
-      { name: "email", label: "Email", type: "email", placeholder: "jane@techglobal.com", icon: "mail" },
-      { name: "website", label: "Website", type: "url", placeholder: "https://techglobal.com", icon: "globe" },
-      { name: "address", label: "Office Address", type: "text", placeholder: "742 Evergreen Terrace", icon: "map-pin", colSpan: 2 }
+      { name: "phone", label: "Phone", type: "tel", placeholder: "+91 98765 43210", icon: "phone" },
+      { name: "email", label: "Email", type: "email", placeholder: "priya.sharma@infosys.com", icon: "mail" },
+      { name: "website", label: "Website", type: "url", placeholder: "https://infosys.com", icon: "globe" },
+      { name: "address", label: "Office Address", type: "text", placeholder: "Electronics City, Bengaluru, Karnataka", icon: "map-pin", colSpan: 2 }
     ],
     buildPayload: (data) => Utils.buildVCard(data)
   },
@@ -4732,7 +4738,7 @@ const QR_REGISTRY = [
     subtitle: "Direct zero-fee payments via GPay, PhonePe, Paytm, BHIM & all Indian banks.",
     fields: [
       { name: "pa", label: "UPI Virtual Payment Address (VPA / ID)", type: "text", placeholder: "merchant@okhdfcbank or yourname@upi", icon: "at-sign", required: true },
-      { name: "pn", label: "Payee / Merchant Name", type: "text", placeholder: "Acme Supermarket or John Doe", icon: "user" },
+      { name: "pn", label: "Payee / Merchant Name", type: "text", placeholder: "Sharma General Store or Rajesh Sharma", icon: "user" },
       { name: "am", label: "Amount (INR, Optional)", type: "number", placeholder: "e.g., 500.00 (leave blank for any amount)", icon: "dollar-sign" },
       { name: "tn", label: "Transaction Note / Remarks", type: "text", placeholder: "Order #8491 or Bill Payment", icon: "edit-2" }
     ],
@@ -5115,10 +5121,7 @@ QR_REGISTRY.getByCategory = function(cat) {
 if (typeof window !== 'undefined') {
   window.QR_REGISTRY = QR_REGISTRY;
 }
-
-
-// --- js/qr-renderer.js ---
-/* ==========================================================================
+\n\n// --- js/qr-renderer.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Robust QR Code Rendering & Styling Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -5409,9 +5412,34 @@ const QRRenderer = {
     this.update();
   },
 
-  updateSettings(newSettings) {
+  _renderTimeout: null,
+  updateSettings(newSettings, immediate = false) {
     this.settings = { ...this.settings, ...newSettings };
-    this.render();
+    
+    if (this._renderTimeout) {
+      cancelAnimationFrame(this._renderTimeout);
+      this._renderTimeout = null;
+    }
+
+    const doUpdate = () => {
+      if (this.qrCodeInstance && typeof this.qrCodeInstance.update === 'function') {
+        try {
+          const config = this.buildConfig(320);
+          this.qrCodeInstance.update(config);
+          return;
+        } catch (e) {
+          this.render();
+        }
+      } else {
+        this.render();
+      }
+    };
+
+    if (immediate) {
+      doUpdate();
+    } else {
+      this._renderTimeout = requestAnimationFrame(doUpdate);
+    }
   },
 
   buildConfig(targetSize = 320) {
@@ -5685,10 +5713,7 @@ const QRRenderer = {
 if (typeof window !== 'undefined') {
   window.QRRenderer = QRRenderer;
 }
-
-
-// --- js/forms.js ---
-/* ==========================================================================
+\n\n// --- js/forms.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Dynamic Schema Form Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -6073,10 +6098,7 @@ const FormEngine = {
 if (typeof window !== 'undefined') {
   window.FormEngine = FormEngine;
 }
-
-
-// --- js/customizer.js ---
-/* ==========================================================================
+\n\n// --- js/customizer.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - QR Customization Studio UI
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -6356,10 +6378,7 @@ const CustomizerStudio = {
 if (typeof window !== 'undefined') {
   window.CustomizerStudio = CustomizerStudio;
 }
-
-
-// --- js/scanner.js ---
-/* ==========================================================================
+\n\n// --- js/scanner.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Integrated Scanner & Decoder
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -6607,10 +6626,7 @@ const QRScanner = {
 if (typeof window !== 'undefined') {
   window.QRScanner = QRScanner;
 }
-
-
-// --- js/history.js ---
-/* ==========================================================================
+\n\n// --- js/history.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Local History Manager (Client-Side Storage)
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -6788,10 +6804,7 @@ const HistoryManager = {
 if (typeof window !== 'undefined') {
   window.HistoryManager = HistoryManager;
 }
-
-
-// --- js/templates.js ---
-/* ==========================================================================
+\n\n// --- js/templates.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Templates Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -7010,10 +7023,7 @@ const TemplatesEngine = {
 if (typeof window !== 'undefined') {
   window.TemplatesEngine = TemplatesEngine;
 }
-
-
-// --- js/bulk.js ---
-/* ==========================================================================
+\n\n// --- js/bulk.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Bulk QR Code Batch Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -7145,10 +7155,7 @@ const BulkEngine = {
 if (typeof window !== 'undefined') {
   window.BulkEngine = BulkEngine;
 }
-
-
-// --- js/analytics.js ---
-/* ==========================================================================
+\n\n// --- js/analytics.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Dynamic Link Manager & Scan Analytics Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -7348,10 +7355,7 @@ const AnalyticsManager = {
 if (typeof window !== 'undefined') {
   window.AnalyticsManager = AnalyticsManager;
 }
-
-
-// --- js/app.js ---
-/* ==========================================================================
+\n\n// --- js/app.js ---\n/* ==========================================================================
    ALL IN ONE QR GENERATER - Main Application Controller
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -7708,9 +7712,7 @@ if (document.readyState === 'loading') {
   initAppSafely();
 }
 window.addEventListener('load', initAppSafely);
-
-
-  </script>
+\n\n  </script>
 </body>
 
 </html>

@@ -695,10 +695,10 @@ button {
 
 /* Studio Content Layout */
 .studio-container {
-  padding: 24px 28px 40px;
+  padding: 32px 28px 44px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 26px;
   max-width: 1480px;
   margin: 0 auto;
   width: 100%;
@@ -2326,7 +2326,7 @@ button {
 }
 
 .modal-container.modal-large {
-  max-width: 780px;
+  max-width: 860px;
 }
 
 .modal-backdrop.active .modal-container {
@@ -2403,19 +2403,26 @@ button {
 
 .customizer-tabs-nav {
   display: flex;
-  gap: 8px;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 6px;
   border-bottom: 1px solid var(--border-light);
-  padding: 0 24px;
+  padding: 0 20px;
   background: var(--bg-app);
   overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.customizer-tabs-nav::-webkit-scrollbar {
+  display: none;
 }
 
 .customizer-tab {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 16px;
-  font-size: 13px;
+  gap: 6px;
+  padding: 12px 14px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text-secondary);
   background: transparent;
@@ -2423,6 +2430,7 @@ button {
   border-bottom: 2.5px solid transparent;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
   transition: all var(--transition-fast);
 }
 

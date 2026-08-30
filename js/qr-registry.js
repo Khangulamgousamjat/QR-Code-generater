@@ -13,14 +13,14 @@ const QR_REGISTRY = [
     icon: "user",
     subtitle: "Create a QR code for personal information and contact details.",
     fields: [
-      { name: "fullName", label: "Full Name", type: "text", placeholder: "e.g., John Doe", icon: "user" },
-      { name: "nickname", label: "Nickname", type: "text", placeholder: "e.g., Johnny", icon: "smile" },
+      { name: "fullName", label: "Full Name", type: "text", placeholder: "e.g., Rajesh Sharma", icon: "user" },
+      { name: "nickname", label: "Nickname", type: "text", placeholder: "e.g., Raj", icon: "smile" },
       { name: "phone", label: "Phone Number", type: "tel", placeholder: "e.g., +91 98765 43210", icon: "phone" },
-      { name: "email", label: "Email Address", type: "email", placeholder: "e.g., john@example.com", icon: "mail" },
-      { name: "website", label: "Website", type: "url", placeholder: "e.g., https://johndoe.com", icon: "globe" },
-      { name: "company", label: "Company", type: "text", placeholder: "e.g., Acme Corporation", icon: "building" },
-      { name: "jobTitle", label: "Job Title", type: "text", placeholder: "e.g., Software Developer", icon: "briefcase" },
-      { name: "address", label: "Address", type: "text", placeholder: "e.g., 123 Main Street, City", icon: "map-pin" },
+      { name: "email", label: "Email Address", type: "email", placeholder: "e.g., rajesh.sharma@example.com", icon: "mail" },
+      { name: "website", label: "Website", type: "url", placeholder: "e.g., https://rajeshsharma.in", icon: "globe" },
+      { name: "company", label: "Company", type: "text", placeholder: "e.g., Tata Consultancy Services", icon: "building" },
+      { name: "jobTitle", label: "Job Title", type: "text", placeholder: "e.g., Senior Software Engineer", icon: "briefcase" },
+      { name: "address", label: "Address", type: "text", placeholder: "e.g., MG Road, Bengaluru, Karnataka", icon: "map-pin" },
       { name: "dob", label: "Date of Birth", type: "date", icon: "calendar" },
       { name: "bio", label: "Bio / About", type: "textarea", placeholder: "Tell something about yourself...", icon: "file-text" }
     ],
@@ -121,13 +121,13 @@ const QR_REGISTRY = [
     icon: "contact",
     subtitle: "Generates an industry standard vCard 3.0 file for easy contact saving.",
     fields: [
-      { name: "fullName", label: "Full Name", type: "text", placeholder: "Jane Smith", icon: "user" },
-      { name: "company", label: "Company / Org", type: "text", placeholder: "Tech Global Inc.", icon: "building" },
+      { name: "fullName", label: "Full Name", type: "text", placeholder: "Priya Sharma", icon: "user" },
+      { name: "company", label: "Company / Org", type: "text", placeholder: "Infosys Technologies Ltd", icon: "building" },
       { name: "jobTitle", label: "Job Title", type: "text", placeholder: "Product Director", icon: "briefcase" },
-      { name: "phone", label: "Phone", type: "tel", placeholder: "+1-555-0199", icon: "phone" },
-      { name: "email", label: "Email", type: "email", placeholder: "jane@techglobal.com", icon: "mail" },
-      { name: "website", label: "Website", type: "url", placeholder: "https://techglobal.com", icon: "globe" },
-      { name: "address", label: "Office Address", type: "text", placeholder: "742 Evergreen Terrace", icon: "map-pin", colSpan: 2 }
+      { name: "phone", label: "Phone", type: "tel", placeholder: "+91 98765 43210", icon: "phone" },
+      { name: "email", label: "Email", type: "email", placeholder: "priya.sharma@infosys.com", icon: "mail" },
+      { name: "website", label: "Website", type: "url", placeholder: "https://infosys.com", icon: "globe" },
+      { name: "address", label: "Office Address", type: "text", placeholder: "Electronics City, Bengaluru, Karnataka", icon: "map-pin", colSpan: 2 }
     ],
     buildPayload: (data) => Utils.buildVCard(data)
   },
@@ -366,7 +366,7 @@ const QR_REGISTRY = [
     subtitle: "Direct zero-fee payments via GPay, PhonePe, Paytm, BHIM & all Indian banks.",
     fields: [
       { name: "pa", label: "UPI Virtual Payment Address (VPA / ID)", type: "text", placeholder: "merchant@okhdfcbank or yourname@upi", icon: "at-sign", required: true },
-      { name: "pn", label: "Payee / Merchant Name", type: "text", placeholder: "Acme Supermarket or John Doe", icon: "user" },
+      { name: "pn", label: "Payee / Merchant Name", type: "text", placeholder: "Sharma General Store or Rajesh Sharma", icon: "user" },
       { name: "am", label: "Amount (INR, Optional)", type: "number", placeholder: "e.g., 500.00 (leave blank for any amount)", icon: "dollar-sign" },
       { name: "tn", label: "Transaction Note / Remarks", type: "text", placeholder: "Order #8491 or Bill Payment", icon: "edit-2" }
     ],

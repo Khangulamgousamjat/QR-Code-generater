@@ -289,9 +289,34 @@ const QRRenderer = {
     this.update();
   },
 
-  updateSettings(newSettings) {
+  _renderTimeout: null,
+  updateSettings(newSettings, immediate = false) {
     this.settings = { ...this.settings, ...newSettings };
-    this.render();
+    
+    if (this._renderTimeout) {
+      cancelAnimationFrame(this._renderTimeout);
+      this._renderTimeout = null;
+    }
+
+    const doUpdate = () => {
+      if (this.qrCodeInstance && typeof this.qrCodeInstance.update === 'function') {
+        try {
+          const config = this.buildConfig(320);
+          this.qrCodeInstance.update(config);
+          return;
+        } catch (e) {
+          this.render();
+        }
+      } else {
+        this.render();
+      }
+    };
+
+    if (immediate) {
+      doUpdate();
+    } else {
+      this._renderTimeout = requestAnimationFrame(doUpdate);
+    }
   },
 
   buildConfig(targetSize = 320) {
