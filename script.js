@@ -1,4 +1,11 @@
-/* ==========================================================================\n   ALL IN ONE - Professional QR Generator Master Bundle\n   Designed & Developed by Gous Khan\n   ========================================================================== */\n\n\n// --- js/utils.js ---\n/* ==========================================================================
+/* ==========================================================================
+   ALL IN ONE - Professional QR Generator Master Bundle
+   Designed & Developed by Gous Khan
+   ========================================================================== */
+
+
+// --- js/utils.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Utilities & Built-in SVG Icon Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -318,7 +325,10 @@ const Utils = {
 if (typeof window !== 'undefined') {
   window.Utils = Utils;
 }
-\n\n// --- js/qr-registry.js ---\n/* ==========================================================================
+
+
+// --- js/qr-registry.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - 44 QR Types Registry & Schema Definitions
    ========================================================================== */
 
@@ -1069,7 +1079,10 @@ QR_REGISTRY.getByCategory = function(cat) {
 if (typeof window !== 'undefined') {
   window.QR_REGISTRY = QR_REGISTRY;
 }
-\n\n// --- js/qr-renderer.js ---\n/* ==========================================================================
+
+
+// --- js/qr-renderer.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Robust QR Code Rendering & Styling Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -1661,7 +1674,10 @@ const QRRenderer = {
 if (typeof window !== 'undefined') {
   window.QRRenderer = QRRenderer;
 }
-\n\n// --- js/forms.js ---\n/* ==========================================================================
+
+
+// --- js/forms.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Dynamic Schema Form Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -2046,7 +2062,10 @@ const FormEngine = {
 if (typeof window !== 'undefined') {
   window.FormEngine = FormEngine;
 }
-\n\n// --- js/customizer.js ---\n/* ==========================================================================
+
+
+// --- js/customizer.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - QR Customization Studio UI
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -2326,7 +2345,10 @@ const CustomizerStudio = {
 if (typeof window !== 'undefined') {
   window.CustomizerStudio = CustomizerStudio;
 }
-\n\n// --- js/scanner.js ---\n/* ==========================================================================
+
+
+// --- js/scanner.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Integrated Scanner & Decoder
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -2574,7 +2596,10 @@ const QRScanner = {
 if (typeof window !== 'undefined') {
   window.QRScanner = QRScanner;
 }
-\n\n// --- js/history.js ---\n/* ==========================================================================
+
+
+// --- js/history.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Local History Manager (Client-Side Storage)
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -2752,7 +2777,10 @@ const HistoryManager = {
 if (typeof window !== 'undefined') {
   window.HistoryManager = HistoryManager;
 }
-\n\n// --- js/templates.js ---\n/* ==========================================================================
+
+
+// --- js/templates.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Templates Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -2971,7 +2999,10 @@ const TemplatesEngine = {
 if (typeof window !== 'undefined') {
   window.TemplatesEngine = TemplatesEngine;
 }
-\n\n// --- js/bulk.js ---\n/* ==========================================================================
+
+
+// --- js/bulk.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Bulk QR Code Batch Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -3103,7 +3134,10 @@ const BulkEngine = {
 if (typeof window !== 'undefined') {
   window.BulkEngine = BulkEngine;
 }
-\n\n// --- js/analytics.js ---\n/* ==========================================================================
+
+
+// --- js/analytics.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Dynamic Link Manager & Scan Analytics Engine
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -3303,7 +3337,10 @@ const AnalyticsManager = {
 if (typeof window !== 'undefined') {
   window.AnalyticsManager = AnalyticsManager;
 }
-\n\n// --- js/app.js ---\n/* ==========================================================================
+
+
+// --- js/app.js ---
+/* ==========================================================================
    ALL IN ONE QR GENERATER - Main Application Controller
    Designed & Developed by Gous Khan
    ========================================================================== */
@@ -3660,4 +3697,4 @@ if (document.readyState === 'loading') {
   initAppSafely();
 }
 window.addEventListener('load', initAppSafely);
-\n
+
