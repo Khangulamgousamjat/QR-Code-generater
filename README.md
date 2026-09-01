@@ -6,15 +6,15 @@
 
 ### 🚀 Crafted with ❤️ by **[Gous Khan](https://github.com/Khangulamgousamjat)**
 
-**A professional, production-grade, 100% free QR code studio and productivity platform with 44+ specialized QR systems, live vector customization, camera scanner, batch bulk generator, and offline history.**
+**A professional, production-grade, 100% free QR code studio and productivity platform with specialized QR systems, live vector customization, camera scanner, batch bulk generator, and offline history.**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://qr-code-generater-gk.vercel.app)
 [![Made by Gous Khan](https://img.shields.io/badge/Made%20with%20❤️%20by-Gous%20Khan-EC4899?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Khangulamgousamjat)
 [![GitHub Profile](https://img.shields.io/badge/GitHub-Khangulamgousamjat-7C3AED?style=for-the-badge&logo=github)](https://github.com/Khangulamgousamjat)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Free Forever](https://img.shields.io/badge/100%25-Free%20Forever-10B981.svg?style=flat-square)](#product-vision)
 [![No Login Required](https://img.shields.io/badge/Auth-No%20Login%20Required-8B5CF6.svg?style=flat-square)](#product-vision)
-[![44+ QR Types](https://img.shields.io/badge/Supported%20Types-44%2B%20Formats-7C3AED.svg?style=flat-square)](#-supported-44-qr-types)
 [![Zero Paywalls](https://img.shields.io/badge/Paywalls-None-059669.svg?style=flat-square)](#product-vision)
 
 </div>
@@ -33,11 +33,18 @@
 
 ---
 
+## 🌐 Live Production Application
+
+- **Live URL**: [https://qr-code-generater-gk.vercel.app](https://qr-code-generater-gk.vercel.app)
+- **Repository**: [https://github.com/Khangulamgousamjat/QR-Code-generater](https://github.com/Khangulamgousamjat/QR-Code-generater)
+
+---
+
 ## 📖 Overview
 
 **ALL IN ONE QR GENERATER** (Designed & Developed by **Gous Khan**) is a modern SaaS-inspired QR Code design and generation platform. It replaces outdated, clunky single-input generators with a clean, high-performance web suite built on a warm lavender & minimalist aesthetic.
 
-Open the application, choose any of the **44+ QR types**, enter your data, customize colors and shapes, upload your brand logo, and download in print-ready vector **SVG**, crystal-clear **PNG**, or compact **JPG** formats—all without creating an account or hitting paywalls.
+Open the application, choose any of the supported QR types, enter your data, customize colors and shapes, upload your brand logo, and download in print-ready vector **SVG**, crystal-clear **PNG**, or compact **JPG** formats—all without creating an account or hitting paywalls.
 
 ---
 
@@ -64,7 +71,7 @@ Open the application, choose any of the **44+ QR types**, enter your data, custo
 
 ---
 
-## 📂 Supported 44+ QR Types
+## 📂 Supported QR Code Types
 
 ```
 ALL IN ONE QR GENERATER (by Gous Khan)
